@@ -1,0 +1,14 @@
+{
+  "name": "openfeature-demo",
+  "version": "0.0.1",
+  "description": "A very simple demo app for OpenFeature",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alois Reitbauer",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
