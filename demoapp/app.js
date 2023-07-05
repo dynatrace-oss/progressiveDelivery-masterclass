@@ -25,6 +25,14 @@ OpenFeature.setProvider(new FlagdProvider({
 const featureFlags = OpenFeature.getClient();
 
 /**
+ * health endpoint
+ */
+
+app.get ("/healthz", async(req, res) => {
+  res.sent ("All good")
+})
+
+/**
  * Minimal application code
  */
 
