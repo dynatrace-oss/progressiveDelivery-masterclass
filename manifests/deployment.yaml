@@ -14,6 +14,10 @@ spec:
     metadata:
       labels:
         app: demoapp
+           # This is the annotation for OpenFeature Operator
+      annotations:     
+        openfeature.dev/enabled: "true"
+        openfeature.dev/flagsourceconfiguration: "flags/flagsourceconfiguration-sample"     
     spec:
       containers:
       - name: demoapp
