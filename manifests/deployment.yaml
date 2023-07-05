@@ -25,8 +25,5 @@ spec:
       httpGet:
         path: /healthz
         port: 3000
-        httpHeaders:
-        - name: Custom-Header
-          value: Awesome
       initialDelaySeconds: 3
       periodSeconds: 3
