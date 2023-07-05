@@ -1,0 +1,15 @@
+apiVersion: core.openfeature.dev/v1alpha2
+kind: FeatureFlagConfiguration
+metadata:
+  name: featureflagconfiguration-sample
+  nameespace: flags
+spec:
+  featureFlagSpec:
+    flags:
+      foo:
+        state: "ENABLED"
+        variants:
+          "bar": "BAR"
+          "baz": "BAZ"
+        defaultVariant: "bar"
+        targeting: {}
