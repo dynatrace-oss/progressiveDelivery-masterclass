@@ -5,13 +5,18 @@ const port = 3000
 const OpenFeature = require('@openfeature/js-sdk').OpenFeature;
 const FlagdProvider = require('@openfeature/flagd-provider').FlagdProvider;
 
+const openFeatureConf = {
+  HOST : process.env.OF_HOST || 'localhost',
+  PORT : process.env.OF_PORT || '8013'
+}
+
 /**
  * OpenFeature init code
  */
 
 OpenFeature.setProvider(new FlagdProvider({
-    host: 'localhost',
-    port: 8013,
+    host: openFeatureConf.HOST,
+    port: openFeatureConf.PORT
 }))
 
 const featureFlags = OpenFeature.getClient();
