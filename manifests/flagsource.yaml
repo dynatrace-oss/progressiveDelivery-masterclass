@@ -1,0 +1,9 @@
+kind: FlagSourceConfiguration
+metadata:
+  name: flagsourceconfiguration-sample
+  namespace: flags
+spec:
+  sources:
+  - source: flags/featureflagconfiguration-sample
+    provider: kubernetes
+  port: 8031
