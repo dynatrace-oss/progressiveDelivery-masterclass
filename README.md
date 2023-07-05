@@ -11,6 +11,11 @@ The example uses OpenFeature to write feature management code in a vendor agnost
 
 ## OpenTelemetry
 
+OpenTelemetry is used for traces and metrics.
+
+## Keptn
+
+The Keptn Lifecycle Toolkit is used for validating the delivery of new artifacts
 
 ## flagD
 
