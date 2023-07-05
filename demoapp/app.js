@@ -10,6 +10,9 @@ const openFeatureConf = {
   PORT : process.env.OF_PORT || '8013'
 }
 
+console.log ("Connecting to flagD at %s:%s", openFeatureConf.HOST, openFeatureConf.PORT)
+
+
 /**
  * OpenFeature init code
  */
