@@ -35,6 +35,18 @@ kubectl wait --namespace ingress-nginx \
   --timeout=90s
 ```
 
+Update `ingress.yaml` with your IP address and apply it
+
+```shell
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+sed -i "s/YOUR_IP_ADDRESS/$IP_ADDRESS/g" ingress.yaml
+
+kubectl apply -f manifests/ingress.yaml
+
+echo "Your ingress is available using http://$IP_ADDRESS.nip.io"
+```
+
+
 ### Install Keptn Lifecycle Controller
 
 ```shell
