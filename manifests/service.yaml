@@ -5,7 +5,7 @@ metadata:
   namespace: demo
 spec:
   selector:
-    app.kubernetes.io/name: demoapp-deployment
+    app.kubernetes.io/name: featuredemo
   ports:
     - protocol: TCP
       port: 80

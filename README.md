@@ -17,6 +17,36 @@ OpenTelemetry is used for traces and metrics.
 
 The Keptn Lifecycle Toolkit is used for validating the delivery of new artifacts.
 
+### Setup a Kind Cluster with nginx ingress controller
+
+Create Kind Cluster which exposes Port 80 and 443
+
+```shell
+kind create cluster --config ./cluster/kind-cluster.yaml
+```
+
+Install NGINX Ingress controller
+```shell
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+```
+
+Update `ingress.yaml` with your IP address and apply it
+
+```shell
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+sed -i "s/YOUR_IP_ADDRESS/$IP_ADDRESS/g" ingress.yaml
+
+kubectl apply -f manifests/ingress.yaml
+
+echo "Your ingress is available using http://$IP_ADDRESS.nip.io"
+```
+
+
 ### Install Keptn Lifecycle Controller
 
 ```shell
