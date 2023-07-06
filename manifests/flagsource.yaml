@@ -1,4 +1,4 @@
-kind: FlagSourceConfiguration
+kind: FlagSourceConfiguration/v1alpha2
 metadata:
   name: flagsourceconfiguration-sample
   namespace: flags
