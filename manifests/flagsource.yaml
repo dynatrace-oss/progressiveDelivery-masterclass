@@ -1,8 +1,7 @@
-apiVersion: core.openfeature.dev/v1alpha2
+apiVersion: core.openfeature.dev/v1alpha3
 kind: FlagSourceConfiguration
 metadata:
   name: flagsourceconfiguration-sample
-  namespace: flags
 spec:
   sources:
   - source: flags/featureflagconfiguration-sample
