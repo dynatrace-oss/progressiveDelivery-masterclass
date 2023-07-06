@@ -7,4 +7,4 @@ spec:
   sources:
   - source: flags/featureflagconfiguration-sample
     provider: kubernetes
-  port: 8031
+  port: 8013
