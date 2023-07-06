@@ -6,10 +6,12 @@ metadata:
 spec:
   featureFlagSpec:
     flags:
-      foo:
+      "my-flag"::
         state: "ENABLED"
         variants:
-          "bar": "BAR"
-          "baz": "BAZ"
-        defaultVariant: "bar"
+          "true": true
+          "false": false
+        defaultVariant: "false"
         targeting: {}
+
+
