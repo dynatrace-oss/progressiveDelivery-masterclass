@@ -7,7 +7,7 @@ const FlagdProvider = require('@openfeature/flagd-provider').FlagdProvider;
 
 const openFeatureConf = {
   HOST : process.env.FLAGD_HOST || 'localhost',
-  PORT : process.env.FLAGD_PORT || '8013'
+  PORT : process.env.FLAGD_PORT || '8031'
 }
 
 console.log ("Connecting to flagD at %s:%s", openFeatureConf.HOST, openFeatureConf.PORT)
