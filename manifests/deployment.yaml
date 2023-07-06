@@ -30,7 +30,7 @@ spec:
         - containerPort: 3000
         env:
         - name: FLAGD_PORT
-          value: "8031"
+          value: "8030"
         livenessProbe:
           httpGet:
             path: /healthz
