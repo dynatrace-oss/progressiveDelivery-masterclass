@@ -25,8 +25,8 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
-        -env:
-        - name: PORT
+        - env:
+        - name: FLAGD_PORT
           value: 8031
     livenessProbe:
       httpGet:
