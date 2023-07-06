@@ -29,7 +29,7 @@ const featureFlags = OpenFeature.getClient();
  */
 
 app.get ("/healthz", async(req, res) => {
-  res.sent ("All good")
+  res.send("All good")
 })
 
 /**
