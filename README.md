@@ -60,7 +60,7 @@ kind: KeptnConfig
 metadata:
   name: keptnconfig-sample
 spec:
-  OTelCollectorUrl: 'otel-collector.default.svc.cluster.local:4317'
+  OTelCollectorUrl: 'otel-collector:4317'
   keptnAppCreationRequestTimeoutSeconds: 30
 EOF
 ```
