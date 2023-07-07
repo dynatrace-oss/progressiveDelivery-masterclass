@@ -4,3 +4,14 @@ metadata:
   name: observability
   labels:
     name: observability
+
+
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: keptn-lifecycle-toolkit-system
+  labels:
+    name: keptn-lifecycle-toolkit-system    
+
+
+    
