@@ -71,7 +71,28 @@ EOF
 
 ## flagD
 
-The application uses flag as a feature evaluation engine
+The application uses flag as a feature evaluation engine. flagD will automatically get injected using the OpenFeature operator
+
+### Install Cert Manager
+
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml &&
+kubectl wait --for=condition=Available=True deploy --all -n 'cert-manager'
+```
+
+### Install Helm Release
+
+```
+helm repo add openfeature https://open-feature.github.io/open-feature-operator/ &&
+helm repo update &&
+helm upgrade --install openfeature openfeature/open-feature-operator
+```
+
+#### Upgrading
+
+```
+helm upgrade --install openfeature openfeature/open-feature-operator
+```
 
 ## GitOps
 
@@ -80,6 +101,12 @@ The application uses flag as a feature evaluation engine
 ```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### Get your initial password
+
+```
+argocd admin initial-password -n argocd
 ```
 
 ### Port Forward
