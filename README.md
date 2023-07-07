@@ -69,7 +69,7 @@ EOF
 The following command sets up the CRDs necessary for the Prometheus Operator to work.
 
 ```shell
-kubectl apply --server-side -f config/prometheus/setup &&
+kubectl apply --server-side -f manifests/platform/prometheus-grafana/setup &&
 kubectl wait --for=condition=Established --all CustomResourceDefinition --namespace=monitoring
 ```
 
@@ -77,7 +77,7 @@ Once the resources are available, we can install the Prometheus resources and Gr
 The following command also pre-configure Grafana with dashboards to visualize traces and metrics exposed by KLT.
 
 ```shell
-kubectl apply -f config/prometheus/ &&
+kubectl apply -f manifests/platform/prometheus-grafana/ &&
 kubectl wait --for=condition=available deployment/prometheus-operator -n monitoring --timeout=120s &&
 kubectl wait --for=condition=available deployment/prometheus-adapter -n monitoring --timeout=120s &&
 kubectl wait --for=condition=available deployment/kube-state-metrics -n monitoring --timeout=120s &&
