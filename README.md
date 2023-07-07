@@ -1,5 +1,6 @@
-# Sample project for KCD Talk
+# Progressive Delivery Masterclass
 
+Learn how build a full progressive delivery example, which separates delivery from release management and progressively rolls out a new release and does targeted rollbacks via adjusting targeting rules on the fly. 
 
 ## The application
 
@@ -17,7 +18,7 @@ OpenTelemetry is used for traces and metrics.
 
 The Keptn Lifecycle Toolkit is used for validating the delivery of new artifacts.
 
-### Setup a Kind Cluster with nginx ingress controller
+## Setup a Kind Cluster with nginx ingress controller
 
 Create Kind Cluster which exposes Port 80 and 443
 
@@ -35,15 +36,10 @@ kubectl wait --namespace ingress-nginx \
   --timeout=90s
 ```
 
-Update `ingress.yaml` with your IP address and apply it
+Apply `ingress.yaml` to expose the application via [http://127.0.0.1.nip.io](http://127.0.0.1.nip.io)
 
 ```shell
-IP_ADDRESS=$(hostname -I | awk '{print $1}')
-sed -i "s/YOUR_IP_ADDRESS/$IP_ADDRESS/g" ingress.yaml
-
 kubectl apply -f manifests/ingress.yaml
-
-echo "Your ingress is available using http://$IP_ADDRESS.nip.io"
 ```
 
 
