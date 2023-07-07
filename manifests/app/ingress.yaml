@@ -18,3 +18,14 @@ spec:
             name: demoapp
             port:
               number: 80
+  - host: 127.0.0.1.nip.io
+    http:
+      paths:
+      - path: /argo
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            namespace: argocd
+            port:
+              number: 80              
