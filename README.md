@@ -42,7 +42,6 @@ Apply `ingress.yaml` to expose the application via [http://127.0.0.1.nip.io](htt
 kubectl apply -f manifests/ingress.yaml
 ```
 
-
 ### Install Keptn Lifecycle Controller
 
 ```shell
@@ -63,6 +62,26 @@ spec:
   OTelCollectorUrl: 'otel-collector:4317'
   keptnAppCreationRequestTimeoutSeconds: 30
 EOF
+```
+
+#### Install Prometheus and Grafana
+
+The following command sets up the CRDs necessary for the Prometheus Operator to work.
+
+```shell
+kubectl apply --server-side -f config/prometheus/setup &&
+kubectl wait --for=condition=Established --all CustomResourceDefinition --namespace=monitoring
+```
+
+Once the resources are available, we can install the Prometheus resources and Grafana.
+The following command also pre-configure Grafana with dashboards to visualize traces and metrics exposed by KLT.
+
+```shell
+kubectl apply -f config/prometheus/ &&
+kubectl wait --for=condition=available deployment/prometheus-operator -n monitoring --timeout=120s &&
+kubectl wait --for=condition=available deployment/prometheus-adapter -n monitoring --timeout=120s &&
+kubectl wait --for=condition=available deployment/kube-state-metrics -n monitoring --timeout=120s &&
+kubectl wait --for=condition=available deployment/grafana -n monitoring --timeout=120s
 ```
 
 ## flagD
