@@ -15148,6 +15148,7 @@ metadata:
   labels:
     name: jaeger-operator
   name: jaeger-operator-mutating-webhook-configuration
+  namespace: observability
 webhooks:
 - admissionReviewVersions:
   - v1
@@ -15204,6 +15205,7 @@ metadata:
   labels:
     name: jaeger-operator
   name: jaeger-operator-validating-webhook-configuration
+  namespace: observability
 webhooks:
 - admissionReviewVersions:
   - v1
