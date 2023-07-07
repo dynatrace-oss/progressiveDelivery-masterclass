@@ -1,5 +1,6 @@
-# Sample project for KCD Talk
+# Progressive Delivery Masterclass
 
+Learn how build a full progressive delivery example, which separates delivery from release management and progressively rolls out a new release and does targeted rollbacks via adjusting targeting rules on the fly. 
 
 ## The application
 
