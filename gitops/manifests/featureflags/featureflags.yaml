@@ -1,0 +1,15 @@
+apiVersion: core.openfeature.dev/v1alpha2
+kind: FeatureFlagConfiguration
+metadata:
+  name: featureflagconfiguration-sample
+  namespace: flags
+spec:
+  featureFlagSpec:
+    flags:
+      "my-flag":
+        state: "ENABLED"
+        variants:
+          "true": "true"
+          "false": "false"
+        defaultVariant: "false"
+        targeting: {}
