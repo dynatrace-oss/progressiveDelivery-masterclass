@@ -8,7 +8,7 @@ metadata:
 spec:
   source:
     repoURL: 'https://charts.lifecycle.keptn.sh'
-    targetRevision: 0.2.3
+    targetRevision: 0.2.5
     chart: klt
   destination:
     namespace: keptn-lifecycle-toolkit-system
