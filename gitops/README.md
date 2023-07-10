@@ -47,7 +47,7 @@ kubectl -n argocd apply -f gitops/app-of-apps.yaml
 
 The App of Apps will create all other apps which are included in the `applications` folder from within GtiHub Repository.
 
-Sync waves allow you to ensure that certain resources are healthy before others are rolled out. It short, it's a way of saying "install A before B".
+Sync waves allow you to ensure that certain resources are healthy before others are rolled out. In short, it's a way of saying "install A before B".
 
 ### Sync Wave -1
 Applies custom argocd-cm for Application Health Status
