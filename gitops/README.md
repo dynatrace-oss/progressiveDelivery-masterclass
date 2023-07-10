@@ -1,6 +1,23 @@
 # GitOps for ArgoCD
 
+## Preparation
+
+1. Install the [ArgoCD CLI for your platform (you may need to update the version number for newer releases)](https://github.com/argoproj/argo-cd/releases/tag/v2.7.7)
+1. Add argocd to your `PATH`
+1. Install kind by [following these instructions for your platform](https://kind.sigs.k8s.io/docs/user/quick-start#installation)
+1. Install kubectl by [following these instructions for your platform](https://kubernetes.io/docs/tasks/tools/#kubectl)
+1. Clone this repository
+
+```
+git clone https://github.com/AloisReitbauer/progressiveDelivery-masterclass
+cd progressiveDelivery-masterclass
+```
+
+## Create a fresh cluster
+
+```
 kind create cluster --config cluster/kind-cluster.yaml
+```
 
 ## Install ArgoCD
 
@@ -53,4 +70,3 @@ Applies custom argocd-cm for Application Health Status
 
 ### Sync Wave 10
 - `demo-application`
-
