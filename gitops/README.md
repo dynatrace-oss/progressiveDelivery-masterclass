@@ -29,12 +29,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 Wait for all deployments to be ready. This is important because otherwise the initial password may not be available yet:
 
 ```
-kubectl -n argocd rollout status deployment argocd-applicationset-controller --timeout=90s
-kubectl -n argocd rollout status deployment argocd-dex-server --timeout=90s
-kubectl -n argocd rollout status deployment argocd-notifications-controller --timeout=90s
-kubectl -n argocd rollout status deployment argocd-redis --timeout=90s
-kubectl -n argocd rollout status deployment argocd-repo-server --timeout=90s
-kubectl -n argocd rollout status deployment argocd-server --timeout=90s
+kubectl wait --for=condition=Available=True deploy --all -n 'argocd'
 ```
 
 ## Get ArgoCD Password and Port-Forward ArgoCD UI
