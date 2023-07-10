@@ -4,6 +4,6 @@ metadata:
   name: demo
   labels:
     name: demo
-  annotations:
-    keptn.sh/lifecycle-toolkit: "enabled"
+#  annotations:
+#    keptn.sh/lifecycle-toolkit: "enabled"
     
