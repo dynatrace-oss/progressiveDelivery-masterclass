@@ -11,7 +11,7 @@ spec:
     targetRevision: main
     path: "gitops/manifests/featureflags"
   destination:
-    namespace: flags
+    namespace: demo
     server: 'https://kubernetes.default.svc'
   project: default
   syncPolicy:
