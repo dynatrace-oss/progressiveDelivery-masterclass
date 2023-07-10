@@ -19,8 +19,8 @@ spec:
         app: demoapp
       # This is the annotation for OpenFeature Operator
       annotations:     
-        core.openfeature.dev/enabled: "true"
-        core.openfeature.dev/flagsourceconfiguration: "flags/flagsourceconfiguration-sample"     
+        openfeature.dev/enabled: "true"
+        openfeature.dev/flagsourceconfiguration: "flags/flagsourceconfiguration-sample"     
     spec:
       containers:
       - name: demoapp
@@ -35,5 +35,5 @@ spec:
           httpGet:
             path: /healthz
             port: 3000
-          initialDelaySeconds: 3
+          initialDelaySeconds: 30
           periodSeconds: 3
