@@ -2,7 +2,7 @@ apiVersion: core.openfeature.dev/v1alpha2
 kind: FeatureFlagConfiguration
 metadata:
   name: featureflagconfiguration-sample
-  namespace: flags
+  namespace: demo
 spec:
   featureFlagSpec:
     flags:
