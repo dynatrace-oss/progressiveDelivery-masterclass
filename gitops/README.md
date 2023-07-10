@@ -47,7 +47,7 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 ## Apply the "App of Apps"
 
 ```
-kubectl -n argocd apply -f app-of-apps.yaml
+kubectl -n argocd apply -f gitops/app-of-apps.yaml
 ```
 
 The App of Apps will create all other apps which are included in the `applications` folder from within GtiHub Repository.
