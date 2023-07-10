@@ -6,7 +6,7 @@ metadata:
 spec:
   featureFlagSpec:
     flags:
-     "my-flag":
+      my-flag:
         state: "ENABLED"
         variants:
           "true": "true"
