@@ -6,8 +6,8 @@ metadata:
 spec:
   source:
     path: gitops/applications
-    repoURL: 'https://github.com/AloisReitbauer/progressiveDelivery-masterclass.git'
-    targetRevision: main
+    repoURL: 'https://github.com/agardnerit/progressiveDelivery-masterclass.git'
+    targetRevision: ag_misc_fixes
   destination:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
