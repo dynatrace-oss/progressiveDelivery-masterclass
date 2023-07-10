@@ -20,7 +20,7 @@ spec:
       # This is the annotation for OpenFeature Operator
       annotations:     
         openfeature.dev/enabled: "true"
-        openfeature.dev/flagsourceconfiguration: "flags/flagsourceconfiguration-sample"     
+        openfeature.dev/flagsourceconfiguration: "demo/flagsourceconfiguration-sample"     
     spec:
       containers:
       - name: demoapp
