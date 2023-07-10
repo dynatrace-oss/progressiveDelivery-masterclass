@@ -2,9 +2,9 @@ apiVersion: core.openfeature.dev/v1alpha3
 kind: FlagSourceConfiguration
 metadata:
   name: flagsourceconfiguration-sample
-  namespace: demo
+  namespace: flags
 spec:
   sources:
-  - source: demo/featureflagconfiguration-sample
+  - source: flags/featureflagconfiguration-sample
     provider: kubernetes
   port: 8030
