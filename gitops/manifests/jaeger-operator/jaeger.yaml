@@ -3,6 +3,10 @@ kind: Jaeger
 metadata:
   name: jaeger
   namespace: keptn-lifecycle-toolkit-system
-spec: 
-  ingress: 
-    enabled: false   
+spec:
+  ingress:
+    enabled: true
+    annotations:
+          kubernetes.io/ingress.class: nginx    
+    hosts:
+      - jaeger.127.0.0.1.nip.io
