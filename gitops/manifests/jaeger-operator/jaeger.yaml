@@ -3,3 +3,6 @@ kind: Jaeger
 metadata:
   name: jaeger
   namespace: keptn-lifecycle-toolkit-system
+  spec: 
+    ingress: 
+      enabled: false   
