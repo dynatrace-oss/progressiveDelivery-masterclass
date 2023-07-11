@@ -31,6 +31,8 @@ spec:
         env:
         - name: FLAGD_PORT
           value: "8030"
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: "http://otel-collector.keptn-lifecycle-toolkit-system:4317"          
         livenessProbe:
           httpGet:
             path: /healthz
