@@ -1,4 +1,3 @@
 #!/bin/sh
 
-docker build --no-cache ../demoapp/Dockerfile -t aloisreitbauer/featuredemo:V1
-docker push aloisreitbauer/featuredemo:V1
+docker buildx build --platform linux/arm64,linux/amd64 --push -t aloisreitbauer/featuredemo:V1 -f ./demoapp/Dockerfile .
