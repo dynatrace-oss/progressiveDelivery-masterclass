@@ -32,8 +32,8 @@ spec:
         - name: FLAGD_PORT
           value: "8030"
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
-          value: "otel-collector.keptn-lifecycle-toolkit-system:4317"
-        # Uncomment the below to troubleshoot exporter->collector connection issues
+          value: "http://otel-collector.keptn-lifecycle-toolkit-system:4317"
+        # Uncomment the below for troubleshooting OTel
         #- name: OTEL_LOG_LEVEL
         #  value: "info"
         livenessProbe:
