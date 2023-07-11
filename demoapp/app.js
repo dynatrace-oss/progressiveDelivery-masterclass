@@ -38,6 +38,12 @@ app.get ("/healthz", async(req, res) => {
 
 app.get('/', async(req, res) => {
   const myFlag = await featureFlags.getBooleanValue('my-flag', false);
+  const slowFlag = await featureFlags.getBooleanValue('slowFlag', false);
+
+  if (slowFlag){
+    await new Promise(r => setTimeout(r, 20000));
+  }
+
   if (myFlag){
     res.send('+++ Hello World! +++ ')
   } else {
