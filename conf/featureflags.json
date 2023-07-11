@@ -7,6 +7,14 @@
           "false": false
         },
         "defaultVariant": "false"
+      },
+      "slowFlag": {
+        "state": "ENABLED",
+        "variants": {
+          "true": true,
+          "false": false
+        },
+        "defaultVariant": "false"
       }
     }
   }
