@@ -89,7 +89,7 @@ Once the `progressive-delivery-masterclass` application is green, you can procee
 ## Open Applicaiton
 The demo application is available at: `http://127.0.0.1.nip.io/` (not `http://localhost.nip.io` !)
 
-Expect to see the text `Hello world`.
+Expect to see the text `Hello World!`.
 
 ## Observability Tooling
 - Grafana is available: `http://grafana.127.0.0.1.nip.io` (username: `admin`, password: `admin`)
