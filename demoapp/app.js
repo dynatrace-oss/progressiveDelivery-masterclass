@@ -8,6 +8,8 @@ const {getNodeAutoInstrumentations,} = require("@opentelemetry/auto-instrumentat
 const {OTLPTraceExporter} = require("@opentelemetry/exporter-trace-otlp-grpc");
 const {OTLPMetricExporter} = require("@opentelemetry/exporter-metrics-otlp-grpc");
 const {PeriodicExportingMetricReader} = require('@opentelemetry/sdk-metrics');
+const {Resource} = require('@opentelemetry/resources');
+const {SemanticResourceAttributes} = require('@opentelemetry/semantic-conventions');
 
 const sdk = new opentelemetry.NodeSDK({
   traceExporter: new OTLPTraceExporter({}),
@@ -15,6 +17,9 @@ const sdk = new opentelemetry.NodeSDK({
     exporter: new OTLPMetricExporter({}),
   }),
   instrumentations: [getNodeAutoInstrumentations()],
+  resource: new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: 'demo-app'
+  })  
 });
 sdk.start();
 
