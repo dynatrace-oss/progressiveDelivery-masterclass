@@ -45,7 +45,7 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 kubectl -n argocd apply -f gitops/app-of-apps.yaml
 ```
 
-The App of Apps will create all other apps which are included in the `applications` folder from within GtiHub Repository.
+The App of Apps will create all other apps which are included in the `applications` folder from within GitHub Repository.
 
 Sync waves allow you to ensure that certain resources are healthy before others are rolled out. In short, it's a way of saying "install A before B".
 
@@ -76,3 +76,21 @@ Applies custom argocd-cm for Application Health Status
 
 ### Sync Wave 10
 - `demo-application`
+
+## Open ArgoCD and Wait
+Open ArgoCD by going to `http://localhost:8080`
+
+As a reminder, you can retrieve the password with: `argocd admin initial-password -n argocd`
+
+The app-of-apps will installs things in waves and until that time, expect the applications list to grow as things are rolled out.
+
+Once the `progressive-delivery-masterclass` application is green, you can proceed (it should take about 15 minutes).
+
+## Open Applicaiton
+The demo application is available at: `http://127.0.0.1.nip.io/` (not `http://localhost.nip.io` !)
+
+Expect to see the text `Hello world`.
+
+## Observability Tooling
+- Grafana is available: `http://grafana.127.0.0.1.nip.io` (username: `admin`, password: `admin`)
+- Prometheus is available: `http://prometheus.127.0.0.1.nip.io`
