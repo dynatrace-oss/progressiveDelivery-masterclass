@@ -63,15 +63,11 @@ Applies custom argocd-cm for Application Health Status
 
 ### Sync Wave 3
 - `prometheus-grafana` application
-
-### Sync Wave 4
 - Jaeger Operator
-
-### Sync Wave 5
-- `featureflags` application
 - OpenTelemetry Collector
 
-### Sync Wave 6
+### Sync Wave 4
+- `featureflags` application
 - Keptn Lifecycle Toolkit Config
 
 ### Sync Wave 10
