@@ -65,6 +65,7 @@ Applies custom argocd-cm for Application Health Status
 - `prometheus-grafana` application
 - Jaeger Operator
 - OpenTelemetry Collector
+- Argo Rollouts
 
 ### Sync Wave 4
 - `featureflags` application
