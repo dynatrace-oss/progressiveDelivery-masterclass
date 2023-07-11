@@ -22,4 +22,4 @@ spec:
     app.kubernetes.io/instance: k8s
     app.kubernetes.io/name: prometheus
     app.kubernetes.io/part-of: kube-prometheus
-  sessionAffinity: ClientIP
+  
