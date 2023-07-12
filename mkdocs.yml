@@ -1,0 +1,5 @@
+site_name: Progressive Delivery Masterclass
+nav:
+    - Home: index.md
+    - Tutorial: tutorial/1.md
+    - tracepusher on GitHub: https://github.com/agardnerit/progressivedelivery-masterclass
