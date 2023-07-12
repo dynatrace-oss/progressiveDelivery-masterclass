@@ -27,27 +27,4 @@ spec:
           "false": "false"
         defaultVariant: "false"
         targeting: {}
----
-apiVersion: core.openfeature.dev/v1alpha2
-kind: FeatureFlagConfiguration
-metadata:
-  name: featureflagconfiguration-slow
-  namespace: demo
-spec:
-  featureFlagSpec:
-    flags:
-      my-flag:
-        state: "ENABLED"
-        variants:
-          "true": "true"
-          "false": "false"
-        defaultVariant: "false"
-        targeting: {}
-      slowFlag:
-        state: "ENABLED"
-        variants:
-          "true": "true"
-          "false": "false"
-        defaultVariant: "true"
-        targeting: {}
 
