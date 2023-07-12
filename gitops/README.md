@@ -83,6 +83,13 @@ The app-of-apps will installs things in waves and until that time, expect the ap
 
 Once the `progressive-delivery-masterclass` application is green, you can proceed (it should take about 15 minutes).
 
+## Argo Ingress
+An ingress has been added for argocd during deployment.
+
+When the `progressive-delivery-masterclass` application is healthy, you can stop the `port-forward` and instead:L
+
+- Navigate to `http://argocd.127.0.0.1.nip.io`
+
 ## Open Applicaiton
 The demo application is available at: `http://127.0.0.1.nip.io/` (not `http://localhost.nip.io` !)
 
