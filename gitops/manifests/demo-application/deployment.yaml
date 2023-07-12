@@ -17,6 +17,7 @@ spec:
         app.kubernetes.io/name: featuredemo
         app.kubernetes.io/version: 1.0.0
         app: demoapp
+        keptn.sh/post-deployment-tasks: load-test
       # This is the annotation for OpenFeature Operator
       annotations:     
         openfeature.dev/enabled: "true"
