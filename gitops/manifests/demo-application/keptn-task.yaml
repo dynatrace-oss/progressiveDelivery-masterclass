@@ -3,7 +3,9 @@ kind: KeptnTaskDefinition
 metadata:
   name: load-test
 spec:
-  function:
-    inline:
-      code: |
-        console.log("Pre-Deployment Task has been executed");
+  container:
+    name: testy-test
+    image: grafana/k6:0.45.0
+    command:
+      - 'run'
+      - 'https://raw.githubusercontent.com/li-clutter-org/k6-circleci-example/master/loadtests/performance-test.js'
