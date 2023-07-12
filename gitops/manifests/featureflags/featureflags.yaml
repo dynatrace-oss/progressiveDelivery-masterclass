@@ -9,8 +9,8 @@ spec:
       my-flag:
         state: "ENABLED"
         variants:
-          "true": "true"
-          "false": "false"
+          "true": true
+          "false": false
         defaultVariant: "false"
         targeting: {}
       slowFlag:
