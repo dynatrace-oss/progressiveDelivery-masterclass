@@ -16,7 +16,7 @@ spec:
       slowFlag:
         state: "ENABLED"
         variants:
-          "on": "true"
-          "off": "false"
-        defaultVariant: "off"
+          "true": true
+          "false": false
+        defaultVariant: "false"
         targeting: {}
