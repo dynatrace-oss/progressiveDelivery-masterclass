@@ -35,8 +35,8 @@ kubectl wait --for=condition=Available=True deploy -n argocd --all --timeout=90s
 ## Get ArgoCD Password and Port-Forward ArgoCD UI
 
 ```
-argocd admin initial-password -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443
+argocd admin initial-password -n argocd
 ```
 
 ## Apply the "App of Apps"
