@@ -1,6 +1,7 @@
 /**
  * OpenTelemetry Code
  */
+const { OpenTelemetryHook } = require('@openfeature/open-telemetry-hook');
 
 /*instrumentation.js*/
 const opentelemetry = require("@opentelemetry/sdk-node");
@@ -11,6 +12,8 @@ const {PeriodicExportingMetricReader} = require('@opentelemetry/sdk-metrics');
 const {Resource} = require('@opentelemetry/resources');
 const {SemanticResourceAttributes} = require('@opentelemetry/semantic-conventions');
 
+const otelServiceName = process.env.OTEL_SERVICE_NAME || 'defaultService'
+
 const sdk = new opentelemetry.NodeSDK({
   traceExporter: new OTLPTraceExporter({}),
   metricReader: new PeriodicExportingMetricReader({
@@ -18,7 +21,7 @@ const sdk = new opentelemetry.NodeSDK({
   }),
   instrumentations: [getNodeAutoInstrumentations()],
   resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: 'demo-app'
+    [SemanticResourceAttributes.SERVICE_NAME]: otelServiceName
   })  
 });
 sdk.start();
@@ -47,6 +50,8 @@ console.log ("Connecting to flagD at %s:%s", openFeatureConf.HOST, openFeatureCo
 /**
  * OpenFeature init code
  */
+
+OpenFeature.addHooks(new OpenTelemetryHook());
 
 OpenFeature.setProvider(new FlagdProvider({
     host: openFeatureConf.HOST,
