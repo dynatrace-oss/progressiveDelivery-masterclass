@@ -10,5 +10,4 @@ spec:
     command:
       - 'k6'
       - 'run'
-      - '--duration 30s'
       - 'https://raw.githubusercontent.com/thisthat/progressiveDelivery-masterclass/add-post-test/gitops/manifests/demo-application/load.js'
