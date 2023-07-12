@@ -2,10 +2,20 @@ apiVersion: lifecycle.keptn.sh/v1alpha1
 kind: KeptnTaskDefinition
 metadata:
   name: load-test
+  namespace: demo
 spec:
   container:
     name: testy-test
-    image: grafana/k6:0.45.0
+    image: busybox:1.36.1
     command:
-      - 'run'
-      - 'https://raw.githubusercontent.com/li-clutter-org/k6-circleci-example/master/loadtests/performance-test.js'
+      - 'sh'
+      - '-c'
+      - 'sleep 30'
+
+# spec:
+#   container:
+#     name: testy-test
+#     image: grafana/k6:0.45.0
+#     command:
+#       - 'run'
+#       - 'https://raw.githubusercontent.com/thisthat/progressiveDelivery-masterclass/add-post-test/gitops/manifests/demo-application/load.js'
