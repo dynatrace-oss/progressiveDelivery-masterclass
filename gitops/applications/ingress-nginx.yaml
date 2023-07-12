@@ -7,8 +7,8 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: 'https://github.com/AloisReitbauer/progressiveDelivery-masterclass.git'
-    targetRevision: main
+    repoURL: 'https://github.com/thisthat/progressiveDelivery-masterclass.git'
+    targetRevision: add-post-test
     path: "gitops/manifests/ingress-nginx"
   destination:
     namespace: ingress-nginx
