@@ -98,3 +98,5 @@ Expect to see the text `Hello World!`.
 ## Observability Tooling
 - Grafana is available: `http://grafana.127.0.0.1.nip.io` (username: `admin`, password: `admin`)
 - Prometheus is available: `http://prometheus.127.0.0.1.nip.io`
+- Jaeger is available: `http://jaeger.127.0.0.1.nip.io`
+- DORA Metrics dashboard is available: `http://grafana.127.0.0.1.nip.io/d/nbiPNgN4z/keptn-applications`
