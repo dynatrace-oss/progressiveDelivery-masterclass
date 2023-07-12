@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: demoapp
-        image: aloisreitbauer/featuredemo:V1
+        image: aloisreitbauer/featuredemo:V1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
