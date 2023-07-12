@@ -665,6 +665,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: ingress-nginx-controller
+  namespace: ingress-nginx
   labels:
     helm.sh/chart: ingress-nginx-4.7.1
     app.kubernetes.io/name: ingress-nginx
@@ -697,7 +698,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/component: controller
   name: ingress-nginx-controller-metrics
-  namespace: default
+  namespace: ingress-nginx
 spec:
   type: ClusterIP
   ports:
