@@ -80,11 +80,14 @@ app.get('/', async(req, res) => {
     await new Promise(r => setTimeout(r, 20000));
   }
 
+  var body = "<html><title>Demo App</title><body><h1>";
   if (myFlag){
-    res.send('+++ Hello World! +++ ')
+    body += '+++ Hello World! +++ ';
   } else {
-    res.send('Hello World!')
+    body += 'Hello World!';
   }
+  body += "</h1></body></html>";
+  res.send (body)
 })
 
 app.listen(port, () => {
