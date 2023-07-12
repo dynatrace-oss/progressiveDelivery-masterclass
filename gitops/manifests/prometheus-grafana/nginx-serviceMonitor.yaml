@@ -6,6 +6,7 @@ metadata:
   namespace: ingress-nginx
   labels:
     serviceapp: ingress-nginx
+    release: kube-prometheus-stack
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
