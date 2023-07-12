@@ -35,8 +35,8 @@ kubectl wait --for=condition=Available=True deploy -n argocd --all --timeout=90s
 ## Get ArgoCD Password and Port-Forward ArgoCD UI
 
 ```
-argocd admin initial-password -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443
+argocd admin initial-password -n argocd
 ```
 
 ## Apply the "App of Apps"
@@ -83,6 +83,13 @@ The app-of-apps will installs things in waves and until that time, expect the ap
 
 Once the `progressive-delivery-masterclass` application is green, you can proceed (it should take about 15 minutes).
 
+## Argo Ingress
+An ingress has been added for argocd during deployment.
+
+When the `progressive-delivery-masterclass` application is healthy, you can stop the `port-forward` and instead:L
+
+- Navigate to `http://argocd.127.0.0.1.nip.io`
+
 ## Open Applicaiton
 The demo application is available at: `http://127.0.0.1.nip.io/` (not `http://localhost.nip.io` !)
 
@@ -91,3 +98,5 @@ Expect to see the text `Hello World!`.
 ## Observability Tooling
 - Grafana is available: `http://grafana.127.0.0.1.nip.io` (username: `admin`, password: `admin`)
 - Prometheus is available: `http://prometheus.127.0.0.1.nip.io`
+- Jaeger is available: `http://jaeger.127.0.0.1.nip.io`
+- DORA Metrics dashboard is available: `http://grafana.127.0.0.1.nip.io/d/nbiPNgN4z/keptn-applications`
