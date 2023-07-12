@@ -35,8 +35,8 @@ kubectl wait --for=condition=Available=True deploy -n argocd --all --timeout=90s
 ## Get ArgoCD Password and Port-Forward ArgoCD UI
 
 ```
-argocd admin initial-password -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443
+argocd admin initial-password -n argocd
 ```
 
 ## Apply the "App of Apps"
@@ -82,6 +82,13 @@ As a reminder, you can retrieve the password with: `argocd admin initial-passwor
 The app-of-apps will installs things in waves and until that time, expect the applications list to grow as things are rolled out.
 
 Once the `progressive-delivery-masterclass` application is green, you can proceed (it should take about 15 minutes).
+
+## Argo Ingress
+An ingress has been added for argocd during deployment.
+
+When the `progressive-delivery-masterclass` application is healthy, you can stop the `port-forward` and instead:L
+
+- Navigate to `http://argocd.127.0.0.1.nip.io`
 
 ## Open Applicaiton
 The demo application is available at: `http://127.0.0.1.nip.io/` (not `http://localhost.nip.io` !)
