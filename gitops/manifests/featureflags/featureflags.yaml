@@ -20,11 +20,3 @@ spec:
           "false": false
         defaultVariant: "false"
         targeting: {}
-      slowFlag:
-        state: "ENABLED"
-        variants:
-          "true": "true"
-          "false": "false"
-        defaultVariant: "false"
-        targeting: {}
-
