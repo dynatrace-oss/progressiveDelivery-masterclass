@@ -1,0 +1,35 @@
+apiVersion: lifecycle.keptn.sh/v1alpha3
+kind: KeptnTaskDefinition
+metadata:
+  name: load-test
+  namespace: demo
+spec:
+  container:
+    name: testy-test
+    image: grafana/k6:0.45.0
+    command:
+      - 'K6_PROMETHEUS_REMOTE_URL=http://prometheus-k8s.monitoring:9090/api/v1/write'
+      - 'k6'
+      - 'run'
+      - 'https://raw.githubusercontent.com/thisthat/progressiveDelivery-masterclass/f612ee6/gitops/manifests/demo-application/load.js'
+---
+apiVersion: metrics.keptn.sh/v1alpha3
+kind: KeptnMetricsProvider
+metadata:
+  name: my-provider
+  namespace: demo
+spec:
+  type: prometheus
+  targetServer: "http://prometheus-k8s.monitoring.svc.cluster.local:9090"
+---
+apiVersion: metrics.keptn.sh/v1alpha3
+kind: KeptnMetric
+metadata:
+  name: demoapp-latency
+  namespace: demo
+spec:
+  provider:
+    name: my-provider
+  query: 'avg(rate(http_server_duration_bucket{exported_job="demoapp"}[1m]))'
+  fetchIntervalSeconds: 5
+---
