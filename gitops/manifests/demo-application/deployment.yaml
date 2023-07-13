@@ -10,7 +10,7 @@ spec:
       canaryService: canary-demo-preview
       steps:
       - setWeight: 50
-      - pause: { duration: 2m }
+      - pause: { duration: 1m }
       - analysis:
           templates:
           - templateName: health-analysis
@@ -23,9 +23,9 @@ spec:
       labels:
         app.kubernetes.io/part-of: demoapp
         app.kubernetes.io/name: featuredemo
-        app.kubernetes.io/version: pre
+        app.kubernetes.io/version: 1.0.0
         app: demoapp
-        keptn.sh/pre-deployment-tasks: load-test
+        keptn.sh/post-deployment-tasks: load-test
         keptn.sh/post-deployment-evaluations: demoapp-healty-check
       # This is the annotation for OpenFeature Operator
       annotations:     
@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: demoapp
-        image: aloisreitbauer/featuredemo:V2
+        image: aloisreitbauer/featuredemo:V1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

@@ -8,7 +8,9 @@ spec:
     name: testy-test
     image: grafana/k6:0.45.0
     command:
-      - 'sleep 60; k6 run https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/6a9f1469dbe10d0e3a52b59889152857f4d84080/gitops/manifests/demo-application/load.js'
+      - 'k6'
+      - 'run'
+      - 'https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/6a9f1469dbe10d0e3a52b59889152857f4d84080/gitops/manifests/demo-application/load.js'
 ---
 apiVersion: metrics.keptn.sh/v1alpha3
 kind: KeptnMetricsProvider
