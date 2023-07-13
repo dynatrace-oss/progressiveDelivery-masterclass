@@ -23,7 +23,7 @@ spec:
       labels:
         app.kubernetes.io/part-of: demoapp
         app.kubernetes.io/name: featuredemo
-        app.kubernetes.io/version: 1.0.0-v1.1
+        app.kubernetes.io/version: slow
         app: demoapp
         keptn.sh/post-deployment-tasks: load-test
         keptn.sh/post-deployment-evaluations: demoapp-healty-check
@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: demoapp
-        image: aloisreitbauer/featuredemo:V1.1
+        image: aloisreitbauer/featuredemo:V2
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
