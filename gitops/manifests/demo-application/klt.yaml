@@ -1,0 +1,45 @@
+apiVersion: lifecycle.keptn.sh/v1alpha3
+kind: KeptnTaskDefinition
+metadata:
+  name: load-test
+  namespace: demo
+spec:
+  container:
+    name: testy-test
+    image: grafana/k6:0.45.0
+    command:
+      - 'k6'
+      - 'run'
+      - 'https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/load.js'
+---
+apiVersion: metrics.keptn.sh/v1alpha3
+kind: KeptnMetricsProvider
+metadata:
+  name: my-provider
+  namespace: demo
+spec:
+  type: prometheus
+  targetServer: "http://prometheus-k8s.monitoring.svc.cluster.local:9090"
+---
+apiVersion: metrics.keptn.sh/v1alpha3
+kind: KeptnMetric
+metadata:
+  name: demoapp-latency
+  namespace: demo
+spec:
+  provider:
+    name: my-provider
+  query: 'avg(rate(http_server_duration_bucket{exported_job="demoapp"}[2m]))'
+  fetchIntervalSeconds: 5
+---
+apiVersion: lifecycle.keptn.sh/v1alpha3
+kind: KeptnEvaluationDefinition
+metadata:
+  name: demoapp-healty-check
+  namespace: demo
+spec:
+  objectives:
+    - keptnMetricRef:
+        name: demoapp-latency
+        namespace: demo
+      evaluationTarget: "<0.3" #less than 0.3s
