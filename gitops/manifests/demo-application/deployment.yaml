@@ -29,7 +29,7 @@ spec:
       labels:
         app.kubernetes.io/part-of: demoapp
         app.kubernetes.io/name: featuredemo
-        app.kubernetes.io/version: 1.0.0
+        app.kubernetes.io/version: 1.0.1
         app: demoapp
         keptn.sh/post-deployment-tasks: load-test
         keptn.sh/post-deployment-evaluations: demoapp-healty-check
@@ -68,9 +68,13 @@ spec:
   - name: success-rate
     interval: 10s
     count: 1
-    successCondition: result[0] > 0.90
+    successCondition: result < 0.3
     provider:
       prometheus:
         address: http://prometheus-k8s.monitoring:9090
         query: >+
           sum(machine_cpu_cores)
+      web:
+        url: "http://keptn-klt-metrics-operator-service.keptn-lifecycle-toolkit-system:9999/api/v1/metrics/demo/demoapp-latency"
+        timeoutSeconds: 20 # defaults to 10 seconds
+        jsonPath: "{$.value}"
