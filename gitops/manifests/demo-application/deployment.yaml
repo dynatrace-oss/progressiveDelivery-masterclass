@@ -1,12 +1,26 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
-  name: demoapp-deployment
+  name: rollouts-demo
   namespace: demo
-  labels:
-    app: demoapp
 spec:
-  replicas: 1
+  replicas: 5
+  strategy:
+    canary:
+      canaryService: canary-demo-preview
+      steps:
+      - setWeight: 20
+      - pause: { duration: 1m }
+      - analysis:
+          templates:
+          - templateName: health-analysis
+      - setWeight: 40
+      - pause: {duration: 10}
+      - setWeight: 60
+      - pause: {duration: 10}
+      - setWeight: 80
+      - pause: {duration: 10}
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: demoapp
@@ -43,3 +57,20 @@ spec:
             port: 3000
           initialDelaySeconds: 3
           periodSeconds: 3
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: health-analysis
+  namespace: demo
+spec:
+  metrics:
+  - name: success-rate
+    interval: 10s
+    count: 1
+    successCondition: result[0] > 0.90
+    provider:
+      prometheus:
+        address: http://prometheus-k8s.monitoring:9090
+        query: >+
+          sum(machine_cpu_cores)
