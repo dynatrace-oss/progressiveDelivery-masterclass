@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: demoapp
-        image: thisthatdc/featuredemo:V1.1
+        image: aloisreitbauer/featuredemo:V1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

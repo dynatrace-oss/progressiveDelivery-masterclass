@@ -17,4 +17,11 @@ spec:
           service:
             name: demoapp
             port:
-              number: 80          
+              number: 80
+  - host: canary.127.0.0.1.nip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: canary-demo-preview
+          servicePort: 80          
