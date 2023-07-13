@@ -18,10 +18,20 @@ spec:
             name: demoapp
             port:
               number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: canary-preview
+  namespace: demo
+spec:
+  ingressClassName: nginx
+  rules:
   - host: canary.127.0.0.1.nip.io
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
           serviceName: canary-demo-preview
           servicePort: 80          
