@@ -15,10 +15,10 @@ spec:
       labels:
         app.kubernetes.io/part-of: demoapp
         app.kubernetes.io/name: featuredemo
-        app.kubernetes.io/version: 1.0.0.d
+        app.kubernetes.io/version: 1.0.0.z
         app: demoapp
         keptn.sh/post-deployment-tasks: load-test
-        keptn.sh/post-deployment-evaluation: demoapp-healty-check
+        keptn.sh/post-deployment-evaluations: demoapp-healty-check
       # This is the annotation for OpenFeature Operator
       annotations:     
         openfeature.dev/enabled: "true"
