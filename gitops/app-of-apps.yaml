@@ -6,8 +6,8 @@ metadata:
 spec:
   source:
     path: gitops/applications
-    repoURL: 'https://github.com/thisthat/progressiveDelivery-masterclass.git'
-    targetRevision: rollout
+    repoURL: 'https://github.com/AloisReitbauer/progressiveDelivery-masterclass.git'
+    targetRevision: main
   destination:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
