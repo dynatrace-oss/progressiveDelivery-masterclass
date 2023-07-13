@@ -10,7 +10,7 @@ export let options = {
 };
 
 export default function() {
-  http.get("http://demoapp.demo/");
+  http.get("http://canary.127.0.0.1.nip.io/");
   sleep(1);
 };
 
