@@ -153,16 +153,16 @@ The output shows all components that are running on your system.
 Installing KLT in your cluster activates Keptn metrics.
 No other functionality is available until you enable KLT.
 To do this, you must create a YAML file for the Kubernetes Namespace resource
-and annotate it as follows:
+and annotate with the following lines:
 
 ```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: demoapp
-  annotations:
+...
     keptn.sh/lifecycle-toolkit: "enabled"
 ```
+
+See the
+[demo_namespace.yaml](https://github.com/AloisReitbauer/progressiveDelivery-masterclass/blob/main/manifests/app/demo_namespace.yaml)
+file for an example.
 
 ### Integrate KLT into the cluster
 
