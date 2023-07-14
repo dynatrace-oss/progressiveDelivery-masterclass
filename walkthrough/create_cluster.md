@@ -1,6 +1,6 @@
 # Create a cluster
 
-Create a directory ``cluster `` in your project to creaate a KIND cluster which exposes port ``80`` and port ``443```
+Create a directory ``cluster `` in your project to creaate a KIND cluster which exposes port ``80`` and port ```443```
 
 ```
 apiVersion: kind.x-k8s.io/v1alpha4
