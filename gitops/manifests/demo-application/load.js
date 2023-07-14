@@ -10,7 +10,12 @@ export let options = {
 };
 
 export default function() {
-  http.get("http://canary.127.0.0.1.nip.io/");
+  const params = {
+    headers: {
+      'Host': 'canary.127.0.0.1.nip.io',
+    },
+  };
+  http.get("http://ingress-nginx-controller.ingress-nginx/", params);
   sleep(1);
 };
 
