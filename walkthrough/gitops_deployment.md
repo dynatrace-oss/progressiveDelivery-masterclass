@@ -11,11 +11,9 @@ kubectl wait --for=condition=available deployment/argocd-server -n argocd --time
 argocd admin initial-password -n argocd
 ```
 
-## Prepare your Repository
+## Prepare your GitOps Repository
 
-
-
-Within the `gitops` directory run
+Open a bash and execute the following commands
 
 ```bash
 curl --create-dirs -sL -o gitops/app-of-apps.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/app-of-apps.yaml
@@ -30,16 +28,43 @@ curl --create-dirs -sL -o gitops/manifests/ingress-nginx/deploy.yaml https://raw
 curl --create-dirs -sL -o gitops/manifests/demo-application/deployment.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/deployment.yaml
 curl --create-dirs -sL -o gitops/manifests/demo-application/ingress.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/ingress.yaml
 curl --create-dirs -sL -o gitops/manifests/demo-application/service.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/service.yaml
+curl --create-dirs -sL -o gitops/manifests/demo-application/namespace.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/namespace.yaml
 ```
 
 
 ###  You should see a folder structure like this in your repository
 ```
-gitops\
-    +- applications\
-    +- manifests\
-        +- argo-config\
-        +- cert-manager\
-        +- ingress-nginx\
-        +- demo-application\
+└── gitops
+    ├── app-of-apps.yaml
+    ├── applications
+    │   ├── argo-config.yaml
+    │   ├── cert-manager.yaml
+    │   ├── demo-application.yaml
+    │   └── ingress-nginx.yaml
+    └── manifests
+        ├── argo-config
+        │   ├── argocd-cm.yaml
+        │   └── ingress.yaml
+        ├── cert-manager
+        │   └── deploy.yaml
+        ├── demo-application
+        │   ├── deployment.yaml
+        │   ├── ingress.yaml
+        │   └── service.yaml
+        └── ingress-nginx
+            └── deploy.yaml
 ```
+
+### Point all manifests to your Repository
+
+```
+find . -type f -exec sed -i 's_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/YOURHANDLE/YOURREPOSITORY_g' {} +
+```
+
+## Deploy the App-of-Apps
+
+```
+kubectl apply -f gitops/app-of-apps.yaml
+```
+
+Access [AgroCD](http://argdocd.127.0.0.1.nip.io) and verify that the deployment is running
