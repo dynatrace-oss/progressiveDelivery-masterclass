@@ -1,7 +1,7 @@
 /**
  * OpenTelemetry Code
  */
-const { OpenTelemetryHook } = require('@openfeature/open-telemetry-hook');
+const { TracingHook, MetricsHook } = require('@openfeature/open-telemetry-hooks');
 
 /*instrumentation.js*/
 const opentelemetry = require("@opentelemetry/sdk-node");
@@ -51,7 +51,7 @@ console.log ("Connecting to flagD at %s:%s", openFeatureConf.HOST, openFeatureCo
  * OpenFeature init code
  */
 
-OpenFeature.addHooks(new OpenTelemetryHook());
+OpenFeature.addHooks(new TracingHook(), new MetricsHook());
 
 OpenFeature.setProvider(new FlagdProvider({
     host: openFeatureConf.HOST,
