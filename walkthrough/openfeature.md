@@ -103,9 +103,13 @@ spec:
 
 ## simply create everything using the following script
 
-Create the following directory ``manifests/featureflags`` and execute
+Create the following directory ``manifests/apps`` and execute
 
 ```bash
+
+curl -sL -o featureflags.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/manifests/app/featureflags.yaml
+
+curl -sL -o flagsource.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/manifests/app/flagsource.yaml
 
 ```
 
