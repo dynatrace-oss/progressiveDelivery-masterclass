@@ -40,11 +40,20 @@ kubectl -n argocd apply -f gitops/app-of-apps.yaml
 
 The App of Apps will create all other apps which are included in the `applications` folder from within GitHub Repository.
 
-## Get ArgoCD Password and Port-Forward ArgoCD UI
+## Get ArgoCD Password
+
+```
+argocd admin initial-password -n argocd
+```
+
+## Access ArgoCD
+
+It may take a few moments, but Argo will be available at: http://argocd.127.0.0.1.nip.io
+
+You can also port forward to access:
 
 ```
 kubectl port-forward svc/argocd-server -n argocd 8080:443
-argocd admin initial-password -n argocd
 ```
 
 # App of Apps and Sync Waves Explained
