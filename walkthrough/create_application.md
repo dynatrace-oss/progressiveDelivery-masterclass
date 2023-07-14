@@ -25,7 +25,7 @@ app.get ("/healthz", async(req, res) => {
  * Minimal application code
  */
 
-app.get('/', async(req, res) => {}
+app.get('/', async(req, res) => {
 
   var body = "<html><title>Demo App</title><body><h1>";
   body += 'Hello World!';
