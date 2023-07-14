@@ -1,9 +1,0 @@
-project: default
-source:
-  repoURL: 'https://github.com/AloisReitbauer/progressiveDelivery-masterclass'
-  path: manifests/app
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-syncPolicy:
-  automated: {}
