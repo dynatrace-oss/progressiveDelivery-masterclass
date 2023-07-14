@@ -1,6 +1,6 @@
 # Add OpenFeature to the app
 
-## Add OpenFeature 
+## Add OpenFeature to the app
 
 Adding the following code to the ``app.js`` file
 
@@ -57,4 +57,55 @@ app.get('/', async(req, res) => {
 })
 ```
 
+## Add the feature definition
+
+You neeed to create ``featureflags.yaml`` for the new features
+
+``` yaml
+apiVersion: core.openfeature.dev/v1alpha2
+kind: FeatureFlagConfiguration
+metadata:
+  name: featureflagconfiguration-sample
+  namespace: demo
+spec:
+  featureFlagSpec:
+    flags:
+      my-flag:
+        state: "ENABLED"
+        variants:
+          "true": true
+          "false": false
+        defaultVariant: "false"
+        targeting: {}
+      slowFlag:
+        state: "ENABLED"
+        variants:
+          "true": true
+          "false": false
+        defaultVariant: "false"
+        targeting: {}
+```
+
+and you need a ``flagsource.yaml`` to properly configure the operator
+
+```yaml
+apiVersion: core.openfeature.dev/v1alpha3
+kind: FlagSourceConfiguration
+metadata:
+  name: flagsourceconfiguration-sample
+  namespace: demo
+spec:
+  sources:
+  - source: demo/featureflagconfiguration-sample
+    provider: kubernetes
+  port: 8030
+```
+
+## simply create everything using the following script
+
+Create the following directory ``manifests/featureflags`` and execute
+
+```bash
+
+```
 
