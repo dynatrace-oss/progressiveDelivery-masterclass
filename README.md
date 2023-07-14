@@ -145,6 +145,7 @@ run the following command:
 
 ```shell
 kubectl get pods -n keptn-lifecycle-toolkit-system
+```
 
 The output shows all components that are running on your system.
 
@@ -152,14 +153,8 @@ The output shows all components that are running on your system.
 
 Installing KLT in your cluster activates Keptn metrics.
 No other functionality is available until you enable KLT.
-To do this, you must create a YAML file for the Kubernetes Namespace resource
-and annotate with the following lines:
-
-```yaml
-...
-    keptn.sh/lifecycle-toolkit: "enabled"
-```
-
+To do this, you must create and annotate
+a YAML file for the Kubernetes Namespace resource.
 See the
 [demo_namespace.yaml](https://github.com/AloisReitbauer/progressiveDelivery-masterclass/blob/main/manifests/app/demo_namespace.yaml)
 file for an example.
