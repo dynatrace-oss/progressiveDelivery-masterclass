@@ -111,44 +111,58 @@ TODO: Where do they download the application
 Your application has been deployed now 
 but you do not really know how well the deployment went
 or how well the application is performing.
-
 To gain observability of the deployment
-and, later, to be able to orchestrate activities around the deployment,
+and, later, to be able to validate the delivery of new artifacts.
 let us install, enable, and integrate the Keptn Lifecycle Toolkit (KLT).
+
+KLT is completely cloud native,
+meaning that virtually all configuration is done
+either by modifying Kubernetes resources
+that are defined by the Kubernetes API
+or by populating Keptn
+[custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+KLT includes its own operators
+and a scheduler that enhances the functionality
+of the Kubernetes scheduler.
 
 ### Install KLT
 
-The Keptn Lifecycle Toolkit validates the delivery of new artifacts.
-Use the following command sequence to install it:
+Use the following command sequence to install KLT:
 
 ```shell
 helm repo add klt https://charts.lifecycle.keptn.sh &&
 helm repo update &&
 helm upgrade --install keptn klt/klt --version v0.2.5 --namespace keptn-lifecycle-toolkit-system --create-namespace --wait
 ```
+Note that the `helm repo update` command is used for fresh installs
+as well as for upgrades.
 
-### Install Cert Manager
+`--version v0.2.5` is the version of the Helm chart,
+not the released version number of KLT.
 
-```
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml &&
-kubectl wait --for=condition=Available=True deploy --all -n 'cert-manager'
-```
+To verify that the KLT components are installed in your cluster,
+run the following command:
 
-TODO: Why are we installing cert-manager separately?
-      Isn't it included in the KLT installation?
+```shell
+kubectl get pods -n keptn-lifecycle-toolkit-system
 
-TODO: Include brief note with link
-      that this is a small-footprint cert-manager
-      that provides only what KLT needs but,
-      if they are using a different cert-manager,
-      they can configure KLT to use that.
-      If we don't say anything,
-      the workshop could be derailed by people asking
-      why they need another cert-manager.
+The output shows all components that are running on your system.
 
 ### Enable KLT
 
-TODO: Explain how to enable KLT
+Installing KLT in your cluster activates Keptn metrics.
+No other functionality is available until you enable KLT.
+To do this, you must create a YAML file for the Kubernetes Namespace resource
+and annotate it as follows:
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demoapp
+  annotations:
+    keptn.sh/lifecycle-toolkit: "enabled"
+```
 
 ### Integrate KLT into the cluster
 
@@ -326,6 +340,17 @@ Use the following command sequence to install OpenFeature into the cluster:
 helm repo add openfeature https://open-feature.github.io/open-feature-operator/ &&
 helm repo update &&
 helm upgrade --install openfeature openfeature/open-feature-operator
+```
+
+### Install Cert Manager
+
+OpenFeature requires its own light-weight certification manager
+that is used for various HTTPS operations.
+Use the following command sequence to install it:
+
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml &&
+kubectl wait --for=condition=Available=True deploy --all -n 'cert-manager'
 ```
 
 ### Add a new feature that uses flagD
