@@ -20,8 +20,8 @@ You will need your own github repository for this tutorial
 
 ## [Step 8: Deploy a broken/slow new version of the app](slow_version.md)
 
-## [Step 9: Add OpenFeature to the app with two new features]()
+## [Step 9: Add OpenFeature to the app with two new features](openfeature.md)
 
-## [Step 10: Validate that the feature is working]()
+## [Step 10: Validate that the feature is working](feature_release.md)
 
 
