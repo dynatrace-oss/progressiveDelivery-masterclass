@@ -45,7 +45,7 @@ Download the ``package.json`` file into the ``demoapps`` directory
 Get the package.json file to install dependencies. This will install all required dependencies for the entire masterclass. 
 
 ``` bash
-curl https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json > package.json
+curl -sL -o package.json https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json
 ```
 
 
