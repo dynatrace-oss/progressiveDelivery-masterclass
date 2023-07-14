@@ -1,5 +1,7 @@
 # Add a post-deployment task
 
+> **_NOTE:_** The following configuration has already been deployed to your cluster.
+
 Keptn allows to run tasks and evaluation as part of the deployment-lifecycle.
 For running some load-test on the application and, afterwards, run an evaluation add the following annotations
 
@@ -10,7 +12,7 @@ keptn.sh/post-deployment-evaluations: demoapp-healty-check
 
 ## Keptn Task
 
-For configuring a `load-test` Keptn Task using [K6](https://k6.io/), create the following manifest
+For configuring the `load-test` Keptn Task using [K6](https://k6.io/), create the following manifest
 
 ```yaml
 apiVersion: lifecycle.keptn.sh/v1alpha3
@@ -75,12 +77,3 @@ spec:
       evaluationTarget: "<0.3"
 ```
 
-# Simply create everything using the following script
-
-Open a bash and execute the following commands
-
-```bash
-
-curl --create-dirs -sL -o gitops/manifests/demo-application/keptn.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/keptn.yaml
-
-```

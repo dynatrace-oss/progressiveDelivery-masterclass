@@ -2,7 +2,9 @@
 
 ## Annotate Namespace
 
-Keptn uses the annotation on the namespace to understand if it has to monitor it. 
+> **_NOTE:_** The following configuration has already been deployed to your cluster.
+
+Keptn uses the annotation `keptn.sh/lifecycle-toolkit: "enabled"` on the namespace to understand if it has to monitor it. 
 
 ```
 kind: Namespace
@@ -30,19 +32,3 @@ metadata:
 
 With these labels, Keptn monitors every deployment and change that occurs in the namespace producing OpenTelemetry traces and metrics. 
 For visualizing DORA metrics and deployment traces, visit `http://grafana.127.0.0.1.nip.io/` where serveral Dashboards are pre-configured.
-
-# Simply create everything using the following script
-
-Open a bash and execute the following commands
-
-```bash
-
-curl --create-dirs -sL -o gitops/manifests/demo-application/namespace.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/namespace.yaml
-
-curl --create-dirs -sL -o gitops/manifests/demo-application/deployment.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/deployment.yaml
-
-curl --create-dirs -sL -o gitops/manifests/demo-application/service.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/service.yaml
-
-curl --create-dirs -sL -o gitops/manifests/demo-application/ingress.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/ingress.yaml
-
-```
