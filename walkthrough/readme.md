@@ -4,5 +4,7 @@
 
 You will need your own github repository for this tutorial
 
-## Step 1: [Create cluster](create_cluster.md)
+## [Step 1: Create cluster](create_cluster.md)
+
+## [Step 2: Create application](create_application)
 
