@@ -25,7 +25,7 @@ nodes:
 
 Then create the cluster using 
 
-```
+```bash
 kind create cluster --config ./cluster/kind-cluster.yaml
 ```
 
