@@ -3,7 +3,7 @@
 > **_NOTE:_** The following configuration has already been deployed to your cluster.
 
 Keptn allows to run tasks and evaluation as part of the deployment-lifecycle.
-For running some load-test on the application and, afterwards, run an evaluation add the following annotations
+For running some load-test on the application and, afterwards, run an evaluation add the following annotations to the ``deployment``
 
 ```yaml
 keptn.sh/post-deployment-tasks: load-test
