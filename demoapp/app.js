@@ -34,6 +34,8 @@ sdk.start();
 const express = require('express')
 const app = express()
 const port = 3000
+const nocache = require('nocache');
+app.use(nocache());
 
 /**
  * OpenFeature relevant code
@@ -76,7 +78,6 @@ app.get ("/healthz", async(req, res) => {
 app.get('/', async(req, res) => {
   const myFlag = await featureFlags.getBooleanValue('my-flag', false);
   const slowFlag = await featureFlags.getBooleanValue('slowFlag', false);
-
   if (slowFlag){
     await new Promise(r => setTimeout(r, 20000));
   }
