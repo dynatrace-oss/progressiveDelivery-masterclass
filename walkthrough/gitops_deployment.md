@@ -1,8 +1,8 @@
 # GitOps Deployment
 
-## Install ArgoCD to your cluster
+## Install ArgoCD in your cluster
 
-Install ArgoCD
+Install ArgoCD with the following command sequence:
 
 ```bash
 kubectl create namespace argocd
@@ -13,7 +13,8 @@ argocd admin initial-password -n argocd
 
 ## Prepare your GitOps Repository
 
-Open a bash and execute the following commands
+Open a bash shell and execute the following commands
+to apply the resources you will need for this exercise:
 
 ```bash
 curl --create-dirs -sL -o gitops/app-of-apps.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/app-of-apps.yaml
@@ -68,3 +69,6 @@ kubectl apply -f gitops/app-of-apps.yaml
 ```
 
 Access [AgroCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running
+
+
+Next: [Roll out the delivery stack](delivery_stack.md)

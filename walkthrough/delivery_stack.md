@@ -1,3 +1,4 @@
+# Roll out the delivery stack
 
 ## Clone the sample repository
 
@@ -22,3 +23,5 @@ git add .
 git commit -m "Adding delivery stack"
 git push
 ```
+Next: [Add OpenTelemetry to the app](opentelemetry.md)
+

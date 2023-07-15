@@ -1,6 +1,6 @@
 # Deploy a broken/slow new version of the app
 
-In this we will deploy a slower version of the application. Therefor we need to change the image in the ``deployment.yaml`` of the app to:
+Now we will deploy a slower version of the application. Therefore we need to change the image in the ``deployment.yaml`` of the app to:
 
 ```yaml
       labels:
@@ -20,4 +20,7 @@ In this we will deploy a slower version of the application. Therefor we need to 
 
 ```
 
-*Note:* YOu have to change the ``app.kubernetes.io.version`` label and the ``image`` to the new version
+*Note:* You must change the ``app.kubernetes.io.version`` label and the ``image`` to the new version
+
+Next: [Add OpenFeature to the app with two new features](openfeature.md)
+

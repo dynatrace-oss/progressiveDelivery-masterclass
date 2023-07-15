@@ -1,6 +1,6 @@
 #  Add OpenTelmetry to the app
 
-Add the following code to the ``app.js`` file
+Add the following code to the ``app.js`` file:
 
 ``` Javascript
 /**
@@ -31,3 +31,5 @@ const sdk = new opentelemetry.NodeSDK({
 });
 sdk.start();
 ```
+Next: [Add Keptn for deployment observability](keptn.md)
+
