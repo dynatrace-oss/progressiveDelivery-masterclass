@@ -4,7 +4,7 @@
 
 > **_NOTE:_** The following configuration has already been deployed to your cluster.
 
-Keptn uses the annotation `keptn.sh/lifecycle-toolkit: "enabled"` on the namespace to understand if it has to monitor it. 
+Keptn uses the annotation `keptn.sh/lifecycle-toolkit: "enabled"` in the Namespace manifest to determine whether to monitor this namespace:
 
 ```
 kind: Namespace
@@ -30,5 +30,9 @@ metadata:
     app.kubernetes.io/version: 1.0.0
 ```
 
-With these labels, Keptn monitors every deployment and change that occurs in the namespace producing OpenTelemetry traces and metrics. 
-For visualizing DORA metrics and deployment traces, visit `http://grafana.127.0.0.1.nip.io/` where serveral Dashboards are pre-configured.
+With these labels, Keptn monitors each deployment and change that occurs in the namespace, producing OpenTelemetry traces and metrics. 
+For visualizing DORA metrics and deployment traces, visit `http://grafana.127.0.0.1.nip.io/` where several Dashboards are pre-configured.
+
+Next: [Add a post-deployment task](post_deployment.md)
+
+

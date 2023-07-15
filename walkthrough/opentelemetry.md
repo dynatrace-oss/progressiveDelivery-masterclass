@@ -1,6 +1,6 @@
 #  Add OpenTelmetry to the app
 
-Add the following code to the ``app.js`` file
+Add the following code to the ``app.js`` file:
 
 ``` Javascript
 /**
@@ -42,3 +42,4 @@ Modify your ``deployment`` file
           value: "demoapp"
 ```
 
+Next: [Add Keptn for deployment observability](keptn.md)

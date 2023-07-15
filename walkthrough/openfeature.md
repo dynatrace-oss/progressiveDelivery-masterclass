@@ -2,7 +2,7 @@
 
 ## Add OpenFeature to the app
 
-Adding the following code to the ``app.js`` file
+Add the following code to the ``app.js`` file:
 
 ``` Javascript
 
@@ -35,7 +35,7 @@ const featureFlags = OpenFeature.getClient();
 
 ## Add feature flags to application method
 
-Also adjust the ``app.get()`` method to validate feature flags
+Also adjust the ``app.get()`` method to validate feature flags:
 
 ``` JavaScript
 app.get('/', async(req, res) => {
@@ -59,7 +59,7 @@ app.get('/', async(req, res) => {
 
 ## Add the feature definition
 
-You neeed to create ``featureflags.yaml`` for the new features
+You must create a ``featureflags.yaml`` manifest for the new features:
 
 ``` yaml
 apiVersion: core.openfeature.dev/v1alpha2
@@ -86,7 +86,7 @@ spec:
         targeting: {}
 ```
 
-and you need a ``flagsource.yaml`` to properly configure the operator
+You also need a ``flagsource.yaml`` manifest to properly configure the operator:
 
 ```yaml
 apiVersion: core.openfeature.dev/v1alpha3
@@ -101,7 +101,10 @@ spec:
   port: 8030
 ```
 
-## simply create everything using the following script
+## Create the manifests/apps directory and execute
+
+The following script creates the ``manifests/apps`` directory
+and executes:
 
 Create the following directory ``manifests/apps`` and execute
 
@@ -112,4 +115,6 @@ curl -sL -o featureflags.yaml https://raw.githubusercontent.com/AloisReitbauer/p
 curl -sL -o flagsource.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/manifests/app/flagsource.yaml
 
 ```
+
+Next: [Validate that the feature is working](feature_release.md)
 

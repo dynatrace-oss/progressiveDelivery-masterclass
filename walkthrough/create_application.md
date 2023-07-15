@@ -1,6 +1,11 @@
-# Create the basic application
+# Create the sample application
 
-## First, we will create a basic node.js express application
+Now we will create the sample application
+that we are going to use.
+This is a very simple node.js application
+that merely changes text based on a feature flag.
+
+## Create a basic node.js express application
 
 Create a ``demoapp``  directory and an ```apps.js``` file in this directory
 
@@ -73,4 +78,5 @@ WORKDIR /usr/src/app
 CMD ["app.js"]
 ```
 
+Next: [GitOps Deployment](gitops_deployment.md)
 

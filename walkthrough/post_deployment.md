@@ -2,8 +2,8 @@
 
 > **_NOTE:_** The following configuration has already been deployed to your cluster.
 
-Keptn allows to run tasks and evaluation as part of the deployment-lifecycle.
-For running some load-test on the application and, afterwards, run an evaluation add the following annotations to the ``deployment``
+Keptn can run tasks and evaluation as part of the deployment-lifecycle.
+To run a load-test on the application and then run an evaluation, add the following annotations:
 
 ```yaml
 keptn.sh/post-deployment-tasks: load-test
@@ -12,7 +12,7 @@ keptn.sh/post-deployment-evaluations: demoapp-healty-check
 
 ## Keptn Task
 
-For configuring the `load-test` Keptn Task using [K6](https://k6.io/), create the following manifest
+For configuring the `load-test` Keptn Task using [K6](https://k6.io/), create the following manifest:
 
 ```yaml
 apiVersion: lifecycle.keptn.sh/v1alpha3
@@ -52,8 +52,10 @@ export default function() {
 
 ## Keptn Evaluation
 
-For configuring a validation of some property of your deployment, we start from configuring from where
-metrics can be fetched. In this example, we use Prometheus.
+To configure the validation of some property of your deployment,
+we begin by configuring the observability platform
+from which metrics can be fetched.
+In this example, we use Prometheus.
 
 ```yaml
 apiVersion: metrics.keptn.sh/v1alpha3
@@ -96,4 +98,6 @@ spec:
         namespace: demo
       evaluationTarget: "<0.3"
 ```
+
+Next: [Deploy a broken/slow new version of the app](slow_version.md)
 
