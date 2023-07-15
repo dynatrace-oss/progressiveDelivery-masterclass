@@ -211,7 +211,7 @@ data:
                 "uid": "P1809F7CD0C75ACF3"
               },
               "editorMode": "code",
-              "expr": "sum(feature_flag_evaluation_success_total) by ( key, variant )",
+              "expr": "sum(delta(feature_flag_evaluation_success_total[1m])) by ( key, variant )",
               "format": "time_series",
               "hide": false,
               "legendFormat": "__auto",
