@@ -17,7 +17,8 @@ const otelServiceName = process.env.OTEL_SERVICE_NAME || 'defaultService'
 const sdk = new opentelemetry.NodeSDK({
   traceExporter: new OTLPTraceExporter({}),
   metricReader: new PeriodicExportingMetricReader({
-    exporter: new OTLPMetricExporter({}),
+    exportIntervalMillis: 1000, // more up-to-date export
+    exporter: new OTLPMetricExporter(),
   }),
   instrumentations: [getNodeAutoInstrumentations()],
   resource: new Resource({
