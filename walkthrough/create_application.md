@@ -8,6 +8,7 @@ that merely changes text based on a feature flag.
 ## Create a basic node.js express application
 
 Create a ``demoapp``  directory and an ```apps.js``` file in this directory
+that has the following content:
 
 ``` JavaScript
 /**
@@ -43,28 +44,31 @@ app.listen(port, () => {
 })
 ```
 
-## Installing packages
+## Install packages
 
-Download the ``package.json`` file into the ``demoapps`` directory
+We need to install the OpenTelemetry and OpenFeature packages
+for use in this exercise.
+To save time, we have created a package that does this.
+To install these packages:
 
-Get the package.json file to install dependencies. This will install all required dependencies for the entire masterclass. 
+1. Download the ``package.json`` file into the ``demoapps`` directory
 
-``` bash
-curl -sL -o package.json https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json
+1. Get the package.json file to install dependencies.
+   This command installs all required dependencies for the entire masterclass: 
+
+   ``` bash
+   curl -sL -o package.json https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json
 ```
 
+1. Run ``npm install``
 
-Run ``npm install``
-
-
-## Verify everything is working
+## Verify that everything works
 
 Run ``node app.js `` and you should be able to access the website on port ``3000``
 
+## Build container image
 
-## Next we build our container image
-
-Craete a ``Dockerfile`` in the ``demoapp`` directory which allows you to build the image
+Create a ``Dockerfile`` in the ``demoapp`` directory which allows you to build the image:
 
 ``` Docker 
 FROM node:19-bullseye-slim AS build

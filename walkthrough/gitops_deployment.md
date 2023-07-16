@@ -1,5 +1,12 @@
 # GitOps Deployment
 
+Keptn, OpenTelemetry, and OpenFeature
+work with virtually any deployment engine,
+including just `kubctl --apply`.
+For this exercise, we use ArgoCD
+so we need to install and configure that
+and then use it to deploy our sample application.
+
 ## Install ArgoCD in your cluster
 
 Install ArgoCD with the following command sequence:
@@ -14,7 +21,7 @@ argocd admin initial-password -n argocd
 ## Prepare your GitOps Repository
 
 Open a bash shell and execute the following commands
-to apply the resources you will need for this exercise:
+to apply the Kubernetes resources required for this exercise:
 
 ```bash
 curl --create-dirs -sL -o gitops/app-of-apps.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/app-of-apps.yaml

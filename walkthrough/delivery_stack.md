@@ -12,7 +12,7 @@ git clone https://github.com/AloisReitbauer/progressiveDelivery-masterclass.git
 cp -R ../progressiveDelivery-masterclass/gitops ./gitops
 ```
 
-## Point all manifests to your Repository
+## Point all manifests to your repository
 ```
 find . -type f -exec sed -i 's_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/YOURHANDLE/YOURREPOSITORY_g' {} +
 ```
