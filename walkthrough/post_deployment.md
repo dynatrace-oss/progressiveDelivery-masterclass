@@ -41,7 +41,7 @@ spec:
       - 'run'
       - 'https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/load.js'
 ```
-## Adding the load test
+## Add the load test
 
 ```Javascript
 import { sleep } from"k6";
@@ -85,7 +85,7 @@ To implement a custom Keptn metric:
    and the interval at which to sample this data.
 
 
-### Define KeptnMetricProvider resource
+### Define KeptnMetricProvider
 
 In this exercise, we are fetching metrics from a single instance
 of a Prometheus data source as our observability platform
@@ -102,7 +102,7 @@ spec:
   targetServer: "http://prometheus-k8s.monitoring.svc.cluster.local:9090"
 ```
 
-### Define the KepntMetric resource
+### Define KepntMetric
 
 With the provider configured, we can create the metric definition (also refer as SLI).
 
