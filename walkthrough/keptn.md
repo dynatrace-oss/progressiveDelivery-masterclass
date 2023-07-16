@@ -2,7 +2,7 @@
 
 ## Enable Keptn in Namespace
 
-> **_NOTE:_** The following configuration has already been deployed to your cluster.
+> **_NOTE:_** The following configuration has already been deployed to your cluster. This page is for your information only.
 
 To enable Keptn, add the `keptn.sh/lifecycle-toolkit: "enabled"` annotation
 to the `Namespace` manifest:
