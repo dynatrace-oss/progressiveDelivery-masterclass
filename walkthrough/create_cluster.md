@@ -29,4 +29,4 @@ Then create the cluster using:
 kind create cluster --config ./cluster/kind-cluster.yaml
 ```
 
-Next: [Create the sample application](create_application.md
+Next: [Create the sample application](create_application.md)
