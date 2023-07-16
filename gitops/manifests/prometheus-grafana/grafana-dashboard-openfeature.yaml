@@ -120,12 +120,12 @@ data:
               "query": "",
               "queryType": "search",
               "refId": "A",
-              "service": "defaultService",
+              "service": "demoService",
               "tags": "feature_flag.key=\"slowFlag\""
             }
           ],
           "title": "Request duration",
-          "type": "barchart"
+          "type": "timeseries"
         },
         {
           "datasource": {
@@ -219,7 +219,7 @@ data:
               "refId": "A"
             }
           ],
-          "title": "slowFlag true vs false",
+          "title": "Feature Flag Usage",
           "type": "timeseries"
         }
       ],
