@@ -1,6 +1,6 @@
 # Add a post-deployment task
 
-> **_NOTE:_** The following configuration has already been deployed to your cluster.
+> **_NOTE:_** The following configuration has already been deployed to your cluster. This page is for your information only.
 
 Keptn can run tasks and evaluation as part of the deployment-lifecycle.
 To run a load-test on the application and then run an evaluation,
