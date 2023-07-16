@@ -1,10 +1,11 @@
 # Add Keptn for deployment observability
 
-## Annotate Namespace
+## Enable Keptn in Namespace
 
 > **_NOTE:_** The following configuration has already been deployed to your cluster.
 
-Keptn uses the annotation `keptn.sh/lifecycle-toolkit: "enabled"` in the Namespace manifest to determine whether to monitor this namespace:
+To enable Keptn, add the `keptn.sh/lifecycle-toolkit: "enabled"` annotation
+to the `Namespace` manifest:
 
 ```
 kind: Namespace
@@ -16,11 +17,20 @@ metadata:
   annotations:
     keptn.sh/lifecycle-toolkit: "enabled"
 ```
+This annotation tells the webhook to handle the namespace.
 
-## Recommended Labels
+## Integrate Keptn into Workloads
 
-Add to the Deployment manifest the [Recommended Kubernetes Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/#labels).
-In this example, the following labels are used:
+Integrate Keptn by labeling all the
+[Workloads](https://kubernetes.io/docs/concepts/workloads/)
+([Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/),
+[StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/),
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/),
+and
+[ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/))
+in your application.
+For this exercise, we only have a Deployment workload
+and we use the following labels:
 
 ```yaml
 metadata:
@@ -30,8 +40,20 @@ metadata:
     app.kubernetes.io/version: 1.0.0
 ```
 
-With these labels, Keptn monitors each deployment and change that occurs in the namespace, producing OpenTelemetry traces and metrics. 
-For visualizing DORA metrics and deployment traces, visit `http://grafana.127.0.0.1.nip.io/` where several Dashboards are pre-configured.
+With these labels, Keptn monitors changes that occur in the workloads
+in the enabled namespace,
+producing OpenTelemetry traces and metrics. 
+
+These labels are discussed more on the
+[Recommended Kubernetes Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/#labels) page.
+You can instead use Keptn annotations to integrate your workloads.
+See
+[Annotate workload(s)](https://lifecycle.keptn.sh/docs/implementing/integrate/#annotate-workloads)
+for more information.
+
+For visualizing DORA metrics and deployment traces,
+visit `http://grafana.127.0.0.1.nip.io/`
+where several Dashboards are pre-configured.
 
 Next: [Add a post-deployment task](post_deployment.md)
 

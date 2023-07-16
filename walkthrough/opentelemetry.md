@@ -1,4 +1,4 @@
-#  Add OpenTelmetry to the app
+#  Add OpenTelemetry to the app
 
 Add the following code to the ``app.js`` file:
 
