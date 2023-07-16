@@ -31,5 +31,15 @@ const sdk = new opentelemetry.NodeSDK({
 });
 sdk.start();
 ```
-Next: [Add Keptn for deployment observability](keptn.md)
 
+Modify your ``deployment`` file 
+
+```yaml
+        env:
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: "http://otel-collector.keptn-lifecycle-toolkit-system:4317"     
+        - name: OTEL_SERVICE_NAME
+          value: "demoapp"
+```
+
+Next: [Add Keptn for deployment observability](keptn.md)

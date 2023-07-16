@@ -2,7 +2,7 @@
 
 Create a directory ``cluster `` in your project to create a KIND cluster that exposes port ``80`` and port ```443```
 
-```
+```yaml
 apiVersion: kind.x-k8s.io/v1alpha4
 kind: Cluster
 name: demo-cluster
@@ -25,8 +25,8 @@ nodes:
 
 Then create the cluster using:
 
-```
+```bash
 kind create cluster --config ./cluster/kind-cluster.yaml
 ```
 
-Next: [Create the sample application](create_application.md)
+Next: [Create the sample application](create_application.md

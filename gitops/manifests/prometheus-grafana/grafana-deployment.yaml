@@ -149,6 +149,9 @@ spec:
             - mountPath: /grafana-dashboard-definitions/0/keptn-overview
               name: grafana-dashboard-keptn-overview
               readOnly: false
+            - mountPath: /grafana-dashboard-definitions/0/openfeature
+              name: grafana-dashboard-openfeature
+              readOnly: false              
             - mountPath: /etc/grafana
               name: grafana-config
               readOnly: false
@@ -255,6 +258,9 @@ spec:
         - configMap:
             name: grafana-dashboard-keptn-overview
           name: grafana-dashboard-keptn-overview
+        - configMap:
+            name: grafana-dashboard-openfeature
+          name: grafana-dashboard-openfeature        
         - name: grafana-config
           secret:
             secretName: grafana-config
