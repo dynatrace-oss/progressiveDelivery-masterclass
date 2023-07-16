@@ -68,7 +68,7 @@ find . -type f -exec sed -i 's_github.com/AloisReitbauer/progressiveDelivery-mas
 kubectl apply -f gitops/app-of-apps.yaml
 ```
 
-Access [AgroCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running
+Access [ArgoCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running
 
 
 Next: [Roll out the delivery stack](delivery_stack.md)
