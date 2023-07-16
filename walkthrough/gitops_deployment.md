@@ -2,7 +2,7 @@
 
 Keptn, OpenTelemetry, and OpenFeature
 work with virtually any deployment engine,
-including just `kubctl --apply`.
+including just `kubectl --apply`.
 For this exercise, we use ArgoCD
 so we need to install and configure that
 and then use it to deploy our sample application.
