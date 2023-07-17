@@ -134,4 +134,4 @@ Access [ArgoCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment i
 - The password can be retrieved with this command: `argocd admin initial-password -n argocd`
 
 
-Next: [Roll out the delivery stack](delivery_stack.md)
+Next: [Add OpenTelemetry to the app](opentelemetry.md)

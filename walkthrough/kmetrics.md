@@ -66,4 +66,4 @@ spec:
 With these resources defined,
 the information for this metric will be displayed on your dashboard.
 
-Next: [Add Keptn for deployment observability](keptn.md)
+Next: [Add a post-deployment task](post_deployment.md)
