@@ -48,5 +48,5 @@ So if a user requests the homepage 3 times,
 We will soon see how to use Keptn
 to report on the "act of deployment" as a trace.
 
-Next: [Define a custom Keptn metric](kmetrics.md)
+Next: [Add Keptn for deployment observability](keptn.md)
 

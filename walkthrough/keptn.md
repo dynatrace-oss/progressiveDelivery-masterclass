@@ -55,6 +55,6 @@ For visualizing DORA metrics and deployment traces,
 visit `http://grafana.127.0.0.1.nip.io/`
 where several Dashboards are pre-configured.
 
-Next: [Add a post-deployment task](post_deployment.md)
+Next: [Define a custom Keptn metric](kmetrics.md)
 
 
