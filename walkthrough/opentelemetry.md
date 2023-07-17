@@ -42,4 +42,11 @@ Modify your ``deployment`` file
           value: "demoapp"
 ```
 
-Next: [Add Keptn for deployment observability](keptn.md)
+This tracing tracks the usage of the application.
+So if a user requests the homepage 3 times,
+3 traces of the app are created.
+We will soon see how to use Keptn
+to report on the "act of deployment" as a trace.
+
+Next: [Define a custom Keptn metric](kmetrics.md)
+
