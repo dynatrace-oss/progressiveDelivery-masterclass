@@ -33,14 +33,13 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 30,
       "links": [],
       "liveNow": false,
       "panels": [
         {
           "datasource": {
-            "type": "jaeger",
-            "uid": "PC9A941E8F2E49454"
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
           },
           "fieldConfig": {
             "defaults": {
@@ -52,6 +51,8 @@ data:
                 "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
                 "fillOpacity": 80,
                 "gradientMode": "none",
                 "hideFrom": {
@@ -59,9 +60,20 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "lineInterpolation": "linear",
                 "lineWidth": 1,
+                "pointSize": 5,
                 "scaleDistribution": {
                   "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
                 }
               },
               "mappings": [],
@@ -113,15 +125,14 @@ data:
           "targets": [
             {
               "datasource": {
-                "type": "jaeger",
-                "uid": "PC9A941E8F2E49454"
+                "type": "prometheus",
+                "uid": "P1809F7CD0C75ACF3"
               },
-              "maxDuration": "",
-              "query": "",
-              "queryType": "search",
-              "refId": "A",
-              "service": "demoService",
-              "tags": "feature_flag.key=\"slowFlag\""
+              "editorMode": "code",
+              "expr": "rate(http_server_duration_sum{exported_job=\"demoapp\", http_route!=\"/healthz\", net_host_port=\"3000\", http_status_code=\"200\"}[1m])/rate(http_server_duration_count{exported_job=\"demoapp\", http_route!=\"/healthz\", net_host_port=\"3000\", http_status_code=\"200\"}[1m])",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
             }
           ],
           "title": "Request duration",
