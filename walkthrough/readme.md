@@ -11,8 +11,10 @@ After some initial setup,
 you will do the following:
 
 1. Create and deploy a simple application using ArgoCD.
-1. Install OpenTelemetry into your application for some basic observability,
-   then install Keptn and see the expanded observability it provides.
+1. Install OpenTelemetry into your application
+   for application level observability,
+   then install Keptn and see the expanded observability of deployments
+   and Dora metrics it provides.
 1. Use the Keptn Release lifecycle management tools
    to add an evaluation and task that runs after the ArgoCD deployment.
 
