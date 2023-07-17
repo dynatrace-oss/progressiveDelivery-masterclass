@@ -15,7 +15,6 @@ Install ArgoCD with the following command sequence:
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl wait --for=condition=available deployment/argocd-server -n argocd --timeout=300s
-argocd admin initial-password -n argocd
 ```
 
 ## Prepare your GitOps Repository
@@ -67,8 +66,58 @@ curl --create-dirs -sL -o gitops/manifests/demo-application/namespace.yaml https
 
 ### Point all manifests to your Repository
 
+The YAML manifests contain placeholder content. You need to replace this with your own information.
+
+Follow the instructions for your operating system.
+
+#### Windows
+
+1. Customise the following two lines to set your details.
+
 ```
-find . -type f -exec sed -i 's_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/YOURHANDLE/YOURREPOSITORY_g' {} +
+set YOURHANDLE=YourGitHubUserNameHere
+set YOURREPOSITORY=YourGitHubRepoHere
+```
+
+Now modify the files:
+```
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/app-of-apps.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/argo-config.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/demo-application.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/ingress-nginx.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/cert-manager.yaml
+```
+
+#### Linux
+
+1. Customise the following two lines to set your details.
+
+```
+export YOURHANDLE=YourGitHubUserNameHere
+export YOURREPOSITORY=YourGitHubRepoHere
+```
+
+Now modify the files:
+```
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/app-of-apps.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/argo-config.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/demo-application.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/ingress-nginx.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/cert-manager.yaml
+```
+
+## Commit files to GitHub
+
+Add all of the local files to your repository on GitHub:
+
+```
+git add gitops/*
+git add cluster/*
+git add demoapp/app.js
+git add demoapp/package.json
+git add demoapp/package-lock.json
+git commit -m "initial commit"
+git push
 ```
 
 ## Deploy the App-of-Apps
@@ -77,7 +126,12 @@ find . -type f -exec sed -i 's_github.com/AloisReitbauer/progressiveDelivery-mas
 kubectl apply -f gitops/app-of-apps.yaml
 ```
 
-Access [ArgoCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running
+Wait until `kubectl -n argocd get ingresses` shows the ingress for ArgoCD.
+
+Access [ArgoCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running.
+
+- The username for Argo is `admin`
+- The password can be retrieved with this command: `argocd admin initial-password -n argocd`
 
 
 Next: [Roll out the delivery stack](delivery_stack.md)
