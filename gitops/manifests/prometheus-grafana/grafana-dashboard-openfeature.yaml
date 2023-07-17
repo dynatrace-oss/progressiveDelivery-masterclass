@@ -242,14 +242,14 @@ data:
         "list": []
       },
       "time": {
-        "from": "now-15m",
+        "from": "now-5m",
         "to": "now"
       },
       "timepicker": {},
       "timezone": "",
       "title": "OpenFeature",
       "uid": "OrCjNpj4z",
-      "version": 4,
+      "version": 6,
       "weekStart": ""
     }
 
