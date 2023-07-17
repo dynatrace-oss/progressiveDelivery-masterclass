@@ -51,7 +51,7 @@ for use in this exercise.
 To save time, we have created a package that does this.
 To install these packages:
 
-1. Get the `package.json file` to install dependencies.
+1. Get the `package.json` file to install dependencies.
    This command installs all required dependencies for the entire masterclass: 
 
    ``` bash
