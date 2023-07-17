@@ -80,4 +80,4 @@ kubectl apply -f gitops/app-of-apps.yaml
 Access [ArgoCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running
 
 
-Next: [Roll out the delivery stack](delivery_stack.md)
+Next: [Add OpenTelemetry to the app](opentelemetry.md)

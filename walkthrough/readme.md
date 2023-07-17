@@ -45,9 +45,9 @@ you must provide the following on your local system:
 
 ## [Step 3: Create a GitOps deployment](gitops_deployment.md)
 
-## [Step 4: Roll out the delivery stack](delivery_stack.md)
+## [Step 4: Add OpenTelemetry to the app](opentelemetry.md)
 
-## [Step 5: Add OpenTelemetry to the app](opentelemetry.md)
+## [Step 5: Add Keptn for deployment observability](keptn.md)
 
 ## [Step 6: Implement Custom Keptn metrics](kmetrics.md)
 
