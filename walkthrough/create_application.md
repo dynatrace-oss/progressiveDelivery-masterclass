@@ -60,6 +60,7 @@ To install these packages:
    curl -sL -o package.json https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json
    ```
 
+1. Change directory into the `demoapp` if you aren't already there: `cd demoapp`
 1. Run `npm install`
 
 ## Verify that everything works
