@@ -2,6 +2,8 @@
 
 > **_NOTE:_** The following configuration has already been deployed to your cluster. This page is for your information only.
 
+> **_NOTE:_** The manifests shows in this document can be found [here](../gitops/manifests/demo-application/keptn.yaml)
+
 Keptn can run tasks and evaluation as part of the deployment-lifecycle.
 To run a load-test on the application and then run an evaluation,
 add the following annotations to the appropriate Workload manifest

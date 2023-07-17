@@ -1,5 +1,9 @@
 # Define a custom Keptn metric
 
+> **_NOTE:_** The following configuration has already been deployed to your cluster. This page is for your information only.
+
+> **_NOTE:_** The manifests shows in this document can be found [here](../gitops/manifests/demo-application/keptn.yaml)
+
 You can supplement the metrics provided
 by DORA and OpenTelementry by defining custom Keptn metrics.
 You can define a Keptn metric for any value
@@ -20,6 +24,7 @@ To implement a custom Keptn metric:
    [KeptnMetric](https://lifecycle.keptn.sh/docs/yaml-crd-ref/metric/)
    resource that defines the observability platform query to use
    and the interval at which to sample this data.
+
 
 ## Define KeptnMetricProvider
 
