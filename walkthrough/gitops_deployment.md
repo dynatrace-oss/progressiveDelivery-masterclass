@@ -30,6 +30,7 @@ curl --create-dirs -sL -o gitops/app-of-apps.yaml https://raw.githubusercontent.
 curl --create-dirs -sL -o gitops/applications/argo-config.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/argo-config.yaml
 curl --create-dirs -sL -o gitops/applications/cert-manager.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/cert-manager.yaml
 curl --create-dirs -sL -o gitops/applications/ingress-nginx.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/ingress-nginx.yaml
+curl --create-dirs -sL -o gitops/applications/openfeature-operator.yaml https://raw.githubusercontent.com/agardnerIT/progressiveDelivery-masterclass/main/gitops/applications/openfeature-operator.yaml
 curl --create-dirs -sL -o gitops/applications/demo-application.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/demo-application.yaml
 curl --create-dirs -sL -o gitops/manifests/argo-config/argocd-cm.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/argo-config/argocd-cm.yaml
 curl --create-dirs -sL -o gitops/manifests/argo-config/ingress.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/argo-config/ingress.yaml
@@ -51,6 +52,7 @@ curl --create-dirs -sL -o gitops/manifests/demo-application/namespace.yaml https
     │   ├── cert-manager.yaml
     │   ├── demo-application.yaml
     │   └── ingress-nginx.yaml
+    │   └── openfeature-operator.yaml
     └── manifests
         ├── argo-config
         │   ├── argocd-cm.yaml
