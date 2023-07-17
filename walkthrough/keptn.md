@@ -55,6 +55,39 @@ For visualizing DORA metrics and deployment traces,
 visit `http://grafana.127.0.0.1.nip.io/`
 where several Dashboards are pre-configured.
 
+## Integrate OpenTelemetry in Keptn
+
+Earlier, we configured OpenTelemetry inside the `app.js` file
+to track the usage of the application.
+We can also configure Keptn to run OpenTelemetry,
+which gives us a trace for the "act of deployment".
+
+We have enabled and integrated Keptn for the cluster
+and have an Open Telemetry collector running.
+To integrate OpenTelemetry into Keptn,
+we only need to create a
+[KeptnConfig](https://lifecycle.keptn.sh/docs/yaml-crd-ref/config/)
+resource to tell Keptn where the Open Telemetry collector is running
+and how often to rerun the automatic app discovery:
+
+```yaml
+apiVersion: options.keptn.sh/v1alpha2
+kind: KeptnConfig
+metadata:
+  name: klt-config
+spec:
+  OTelCollectorUrl: 'http://otel-collector.keptn-lifecycle-toolkit-system:4317`
+  keptnAppCreationRequestTimeoutSeconds: 40
+```
+
+This uses the same URL for the OpenTelemetry collector
+that we used earlier
+and specifies that the automatic app discovery should be run every 40 seconds.
+
+For more information about integrating and using
+OpenTelemetry in Keptn, see
+[Integrate OpenTelemetry into the Keptn Lifecycle Toolkit](https://lifecycle.keptn.sh/docs/implementing/otel/#integrate-opentelemetry-into-the-keptn-lifecycle-toolkit).
+
 Next: [Define a custom Keptn metric](kmetrics.md)
 
 
