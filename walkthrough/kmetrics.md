@@ -31,7 +31,7 @@ To implement a custom Keptn metric:
 In this exercise, we are fetching metrics from a single instance
 of a Prometheus data source as our observability platform
 so only need a single
-[KeptnMetricProvider](https://main.lifecycle.keptn.sh/docs/yaml-crd-ref/metricsprovider/)
+[KeptnMetricProvider](https://lifecycle.keptn.sh/docs/yaml-crd-ref/metricsprovider/)
 resource.
 We define this to use the Prometheus instance:
 
