@@ -20,6 +20,8 @@ argocd admin initial-password -n argocd
 
 ## Prepare your GitOps Repository
 
+Change directory back to the repository root: `cd ..`
+
 Open a bash shell and execute the following commands
 to apply the Kubernetes resources required for this exercise:
 
