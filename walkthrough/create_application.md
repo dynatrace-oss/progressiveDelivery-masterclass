@@ -51,16 +51,15 @@ for use in this exercise.
 To save time, we have created a package that does this.
 To install these packages:
 
-1. Download the `package.json` file into the `demoapp` directory
+1. Get the `package.json` file to install dependencies.
 
-1. Get the package.json file to install dependencies.
    This command installs all required dependencies for the entire masterclass: 
 
    ``` bash
+   cd demoapp
    curl -sL -o package.json https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json
    ```
 
-1. Change directory into the `demoapp` if you aren't already there: `cd demoapp`
 1. Run `npm install`
 
 ## Verify that everything works
