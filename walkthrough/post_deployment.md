@@ -72,7 +72,7 @@ and the evaluation serves as the SLO.
 
 Using the `demoapp-latency` Keptn Metric we defined above,
 create a
-[KeptnEvaluationDefinition](https://main.lifecycle.keptn.sh/docs/yaml-crd-ref/evaluationdefinition/)
+[KeptnEvaluationDefinition](https://lifecycle.keptn.sh/docs/yaml-crd-ref/evaluationdefinition/)
 that tests whether the target value is less that `0.3`:
 
 ```yaml
