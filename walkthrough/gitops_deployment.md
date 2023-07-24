@@ -131,7 +131,7 @@ Wait until `kubectl -n argocd get ingresses` shows the ingress for ArgoCD.
 Access [ArgoCD](http://argocd.127.0.0.1.nip.io) and verify that the deployment is running.
 
 - The username for Argo is `admin`
-- The password can be retrieved with this command: `argocd admin initial-password -n argocd`
+- The password can be retrieved with this command: `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
 
 
 Next: [Add OpenTelemetry to the app](opentelemetry.md)
