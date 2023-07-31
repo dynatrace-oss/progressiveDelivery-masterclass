@@ -1,0 +1,34 @@
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+name: demo-cluster
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - hostPort: 80
+    containerPort: 80
+    protocol: TCP  
+  - hostPort: 443
+    containerPort: 443
+    protocol: TCP      
+  - hostPort: 30100
+    containerPort: 30100
+    protocol: TCP
+  - hostPort: 30101
+    containerPort: 30101
+    protocol: TCP
+  - hostPort: 30102
+    containerPort: 30102
+    protocol: TCP
+  - hostPort: 30103
+    containerPort: 30103
+    protocol: TCP
+  - hostPort: 30104
+    containerPort: 30104
+    protocol: TCP  
+ 
