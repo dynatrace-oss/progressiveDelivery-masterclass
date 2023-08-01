@@ -27,3 +27,12 @@ create:
 	@kubectl -n argocd apply -f gitops/app-of-apps.yaml
 	@echo "ArgoCD Admin Password"
 	@kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+	@echo ""
+	@echo "🎉 Installation Complete! 🎉"
+
+test:
+	@echo "ArgoCD Admin Password"
+	@kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+	@echo ""
+	@echo ""
+	@echo "🎉 Installation Complete! 🎉"
