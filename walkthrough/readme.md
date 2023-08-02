@@ -166,4 +166,10 @@ Try it now on the demo app and you should see:
 
 ![demo app](assets/demo-app-1.png)
 
-In progress...
+### Application Shortcuts
+
+Here are some quick shortcuts to the important UIs:
+- Demo application: `http://127.0.0.1.nip.io`
+- Grafana: `http://grafana.127.0.0.1.nip.io` (username: `admin`, password: `admin`)
+- Jaeger: `http://jaeger.127.0.0.1.nip.io`
+- Prometheus: `http://prometheues.127.0.0.1.nip.io`
