@@ -9,7 +9,7 @@
 1. Clone this repository
 
 ```
-git clone https://github.com/AloisReitbauer/progressiveDelivery-masterclass
+git clone https://github.com/agardnerit/progressivedelivery-masterclass
 cd progressiveDelivery-masterclass
 ```
 
