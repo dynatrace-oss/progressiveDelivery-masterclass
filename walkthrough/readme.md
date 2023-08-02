@@ -7,55 +7,163 @@ Keptn and OpenFeature
 to gain better observability and management
 of your cloud-native software deployment.
 
-After some initial setup,
-you will do the following:
+> :warning:
+> This has currently only been tested in cloud-based codespaces.
+> Please do not try to run this locally in VSCode.
+> This notice will be removed when this functionality is reliable.
 
-1. Create and deploy a simple application using ArgoCD.
-1. Install OpenTelemetry into your application
-   for application level observability,
-   then install Keptn and see the expanded observability of deployments
-   and Dora metrics it provides.
-1. Use the Keptn Release lifecycle management tools
-   to add an evaluation and task that runs after the ArgoCD deployment.
+> :question:
+> What is a codespace?
+> A codespace is a self-contained, temporary and disposable cloud-hosted environment.
+> We will use it so you don't need to clutter up your system.
 
-We have provided scripts as well as commands and files that you can copy
-to simplify the mechanics of setting up this environment.
-We assume that you have some familiarity with how Kubernetes works.
+## Preparation
 
-Before beginning this exercise,
-you must provide the following on your local system:
+1. [Install the gh CLI tool](https://github.com/cli/cli#installation) on your local machine. This is the only tool you will need locally.
+1. Fork this repository to your GitHub Account
+2. In your fork, go to "Code" then switch to the "Codespaces" tab and click "Create codespace on main"
 
-* A github repository where you will store the files and resources
-  used for the exercise.
-  We recommend that you create a new repository to use just for this exercise.
-  See [Create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
-  for instructions.
-* KIND must be installed locally.
-  See
-  [KIND Quick Start](https://kind.sigs.k8s.io/docs/user/quick-start/)
-  for instructions
-* Docker must be installed and running locally.
-  See
-  [Install Docker Engine](https://docs.docker.com/engine/install/)
-  for instructions.
+![start codespaces](assets/start-codespace.png)
 
-## [Step 1: Create cluster](create_cluster.md)
+3. A new tab will open and codespace creation will begin.
 
-## [Step 2: Create application](create_application.md)
+![codespace setup](assets/codespace-setup.png)
 
-## [Step 3: Create a GitOps deployment](gitops_deployment.md)
+4. When the codespace is active, you will see a VSCode user interface. All code and tools are preinstalled into this environment. You are now ready to begin.
 
-## [Step 4: Add OpenTelemetry to the app](opentelemetry.md)
+## Create Cluster and Install Applications
 
-## [Step 5: Add Keptn for deployment observability](keptn.md)
+1. Click the magifying glass icon in the left hand menu and perform a find and replace
+  - Find: `aloisreitbauer/progressivedelivery-masterclass`
+  - Replace: `YourGitHubUsername/progressivedelivery-masterclass`
 
-## [Step 6: Implement Custom Keptn metrics](kmetrics.md)
+![find and replace](assets/find-replace.png)
 
-## [Step 7: Add a post-deployment task](post_deployment.md)
+2. Click the replace icon ![replace icon](assets/replace-icon.png) and you'll see a warning (of course, your text will be different)
 
-## [Step 8: Deploy a broken/slow new version of the app](slow_version.md)
+![replace warning](assets/replace-warning.png)
 
-## [Step 9: Add OpenFeature to the app with two new features](openfeature.md)
+3. Commit your changes to your repository:
 
-## [Step 10: Validate that the feature is working](feature_release.md)
+```shell
+git add -A
+git commit -m "use my forked repo"
+git push
+```
 
+3. In the terminal window, type: `make create`. This command will:
+  - Create a new kubernetes cluster, exposing all the required ports
+  - Install ArgoCD
+  - Patch the ArgoCD ConfigMap so that Argo and Keptn work together to properly inform of Argo application health status
+  - Add a NodePort service so we can access the Argo user interface
+  - Trigger the installation of an Argo "App of Apps" to install our applications using ArgoCD. This will be explained in detail later.
+  - Print the ArgoCD user interface password to the terminal
+
+![make create](assets/make-create.png)
+
+When the installation process is complete, you should see the Argo password (a random string of characters) and the following message:
+
+```shell
+🎉 Installation Complete! 🎉
+```
+
+Copy the ArgoCD password and proceed with the next steps.
+
+## Access Argo
+
+1. Switch to the "Ports" tab in the terminal window. Hover over the entry for ArgoCD and click the "globe" icon
+1. A new tab will open and the ArgoCD login screen will be displayed
+1. Log into ArgoCD. Username is `admin` and hte password is the random string you copied before.
+   If you forget the Argo password, it can be retrieved with `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
+
+![access argo](assets/access-argo.png)
+![argo login](assets/argo-login.png)
+
+## Wait for Installation
+
+The platform stack is being installed and progress can be tracked via the `progressive-delivery-masterclass` application. This applications is an "app of apps" meaning it is an application which installs other applications in turn. The platform stack will not be ready until `progressive-delivery-masterclass` is green.
+
+![pdm app installation](assets/pdm-argo-installing.png)
+
+There are many applications which make up the platform. The installation will take a few moments so let's use the time to understand what's happening.
+
+The platform is built from the following applications:
+
+- ArgoCD
+- Cert Manager
+- Keptn Lifecycle Toolkit
+- Grafana
+- Prometheus
+- Jaeger Operator (installs Jaeger)
+- OpenFeature Operator (installs flagd)
+- OpenTelemetry Collector
+
+These applications are all being deployed at different times, as "bundles" or "waves", as Argo calls them.
+
+The waves are processed in order, lowest first.
+
+### Wave -1
+- Argo configuration
+
+### Wave 0
+- Cert Manager
+- Ingress NGINX
+
+### Wave 2
+- Keptn Lifecycle Toolkit
+- OpenFeature Operator
+
+### Wave 3
+- Jaeger Operator
+- OpenTelemetry Collector
+- Prometheus
+- Grafana
+
+### Wave 4
+- Feature flags configuration
+
+### Wave 10
+- Demo Application
+
+## Wait for green
+
+Wait until the `progressive-delivery-masterclass` application is green. This means that the stack is ready.
+
+![system synced](assets/pdm-synced.png)
+
+## Use nice URLs
+
+Although port-forwarding is easy (it gave us access to Argo), it is more user-friendly to use "easy" URLs.
+
+The applications on the cluster are already configured for these URLs but we need a way into the cluster to access them.
+
+To do this, open a terminal window (or `cmd`) and run the following command on your **local machine**:
+
+```shell
+gh codespace ports forward 80:80 443:443
+```
+
+It will prompt you to pick the correct codespace. The two word, randomly generated name should match what is shown in your browser window.
+
+![gh cli 1](assets/gh-cli-1.png)
+
+Hit the `Enter` key and you should see a message like this:
+
+```shell
+Forwarding ports: remote 443 <=> local 443
+Forwarding ports: remote 80 <=> local 80
+```
+
+![gh cli 2](assets/gh-cli-2.png)
+
+## Use Ingresses
+
+The "friendly URLs" are now enabled. Wherever you see the "open in new window" icon in Argo ![new window icon](assets/new-window-icon.png), clicking it will take you to that service.
+
+![ingress demo](assets/ingress-demo.png)
+
+Try it now on the demo app and you should see:
+
+![demo app](assets/demo-app-1.png)
+
+In progress...
