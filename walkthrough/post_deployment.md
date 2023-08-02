@@ -41,7 +41,7 @@ spec:
     command:
       - 'k6'
       - 'run'
-      - 'https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/load.js'
+      - 'https://raw.githubusercontent.com/agardnerit/progressivedelivery-masterclass/main/gitops/manifests/demo-application/load.js'
 ```
 ## Add the load test
 

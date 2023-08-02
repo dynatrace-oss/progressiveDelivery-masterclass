@@ -57,7 +57,7 @@ To install these packages:
 
    ``` bash
    cd demoapp
-   curl -sL -o package.json https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/demoapp/package.json
+   curl -sL -o package.json https://raw.githubusercontent.com/agardnerit/progressivedelivery-masterclass/main/demoapp/package.json
    ```
 
 1. Run `npm install`
