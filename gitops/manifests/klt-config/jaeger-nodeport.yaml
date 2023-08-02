@@ -1,20 +1,3 @@
-kind: Service
+kind: Namespace
 metadata:
-  name: jaeger-query-nodeport
-  namespace: keptn-lifecycle-toolkit-system
-spec:
-  ports:
-  - name: http-query
-    port: 16686
-    protocol: TCP
-    targetPort: 16686
-    nodePort: 30104
-  selector:
-    app: jaeger
-    app.kubernetes.io/component: all-in-one
-    app.kubernetes.io/instance: jaeger
-    app.kubernetes.io/managed-by: jaeger-operator
-    app.kubernetes.io/name: jaeger
-    app.kubernetes.io/part-of: jaeger
-  sessionAffinity: None
-  type: NodePort
+  name: dummy
