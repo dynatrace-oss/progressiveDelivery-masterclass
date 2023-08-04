@@ -35,7 +35,7 @@ spec:
 apiVersion: lifecycle.keptn.sh/v1alpha3
 kind: KeptnEvaluationDefinition
 metadata:
-  name: demoapp-healty-check
+  name: demoapp-healthy-check
   namespace: demo
 spec:
   objectives:
