@@ -225,7 +225,7 @@ Another capability of KLT are pre and post deployment evaluations and tasks. The
 As explained previously the Keptn Lifecycle Toolkit also provides a way to run SLO evaluations of metrics before and / or  after deployment.
 
 1. Create a `KeptnMetricsProvider` which defines *where* the metric should be retrieved from ([see this here](../gitops/manifests/demo-application/keptn.yaml#L15))
-1. Create a `KeptnMetric` which defines *what* metric should be pulled and how often ([see this here](../gitops/manifests/demo-application/keptn.yaml#L24))
-1. Create a `KeptnEvaluationDefinition` which defines your acceptance criteria. In other words, for a metric, what is the acceptable threshold ([see this here](../gitops/manifests/demo-application/keptn.yaml#L35))
+1. Create a `KeptnMetric` which defines *which* metric should be pulled and how often ([see this here](../gitops/manifests/demo-application/keptn.yaml#L24))
+1. Create a `KeptnEvaluationDefinition` to define the acceptance criteria. In other words, for a metric, what is the acceptable threshold ([see this here](../gitops/manifests/demo-application/keptn.yaml#L35))
 1. Add a label to the deployment to inform KLT that a given `KeptnEvaluationDefinition` should occur either before or after deployment. In this case, after (post) deployment ([see this here](../gitops/manifests/demo-application/deployment.yaml#L21))
 
