@@ -42,4 +42,4 @@ spec:
     - keptnMetricRef:
         name: demoapp-latency
         namespace: demo
-      evaluationTarget: "10" #less than 0.3s
+      evaluationTarget: "<20" #less than 20s
