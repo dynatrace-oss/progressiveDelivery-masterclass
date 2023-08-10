@@ -8,7 +8,7 @@ metadata:
 spec:
   source:
     repoURL: 'https://open-feature.github.io/open-feature-operator'
-    targetRevision: v0.2.34
+    targetRevision: v0.2.36
     chart: open-feature-operator
   destination:
     namespace: open-feature-operator-system
