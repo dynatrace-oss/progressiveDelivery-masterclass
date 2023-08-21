@@ -84,4 +84,4 @@ As explained previously the Keptn Lifecycle Toolkit also provides a way to run S
 
 ![keptn evaluation label](assets/keptn-eval-label.png)
 
-➡️ Next: [Deploy Slow Application Version](5-deploy-slow-version.md) ➡️
+➡️ Next: [View Telemetry](5-view-telemetry.md) ➡️
