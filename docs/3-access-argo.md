@@ -72,4 +72,4 @@ Wait until the `progressive-delivery-masterclass` application is green. This mea
 
 ![system synced](assets/pdm-synced.png)
 
-➡️ Next: [Access ArgoCD](3-access-argo.md) ➡️
+➡️ Next: [Explanation of the System](4-explainer.md) ➡️
