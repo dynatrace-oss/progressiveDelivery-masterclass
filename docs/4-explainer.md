@@ -83,3 +83,5 @@ As explained previously the Keptn Lifecycle Toolkit also provides a way to run S
 * Add a label to the deployment to inform Keptn that a given `KeptnEvaluationDefinition` should occur either before or after deployment. In this case, after (post) deployment ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L21))
 
 ![keptn evaluation label](assets/keptn-eval-label.png)
+
+➡️ Next: [Deploy Slow Application Version](5-deploy-slow-version.md) ➡️
