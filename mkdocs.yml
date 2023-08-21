@@ -35,6 +35,8 @@ nav:
       - '1: Create Codespace': '1-create-codespace.md'
       - '2: Create Kubernetes Cluster': '2-create-cluster.md'
       - '3: Access ArgoCD': '3-access-argo.md'
+      - '4: The System Explained': '4-explainer.md'
+      - '5: Roll out Slow Version': '5-deploy-slow-version.md'
 
 # pip install mkdocs-macros-plugin
 # Allows use of variables (see `extras` below)
