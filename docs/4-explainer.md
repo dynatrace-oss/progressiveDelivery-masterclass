@@ -1,6 +1,6 @@
 # 4. What Just Happened?
 
-The system is now successfully running. If you look at the `demo-application` in argo you will see a few things:
+The system is now successfully running. If you look at the `demo-application` in Argo you will see a few things:
 
 1. The `demoapp` pod is runnning
 1. The `demoapp` pod belongs to a deployment
