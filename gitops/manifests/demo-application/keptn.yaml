@@ -4,6 +4,8 @@ metadata:
   name: load-test
   namespace: demo
 spec:
+  retries: 0
+  timeout: "5m"
   container:
     name: testy-test
     image: grafana/k6:0.45.0
