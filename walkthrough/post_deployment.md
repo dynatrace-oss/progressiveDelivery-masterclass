@@ -11,7 +11,7 @@ which, for this exercise, is the `Deployment` manifest:
 
 ```yaml
 keptn.sh/post-deployment-tasks: load-test
-keptn.sh/post-deployment-evaluations: demoapp-healty-check
+keptn.sh/post-deployment-evaluations: demoapp-healthy-check
 ```
 
 ## Define the Keptn task
@@ -79,7 +79,7 @@ that tests whether the target value is less that `0.3`:
 apiVersion: lifecycle.keptn.sh/v1alpha3
 kind: KeptnEvaluationDefinition
 metadata:
-  name: demoapp-healty-check
+  name: demoapp-healthy-check
   namespace: demo
 spec:
   objectives:

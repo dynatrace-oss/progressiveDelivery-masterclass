@@ -18,7 +18,7 @@ spec:
         app.kubernetes.io/version: 1.2.0
         app: demoapp
         keptn.sh/post-deployment-tasks: load-test
-        keptn.sh/post-deployment-evaluations: demoapp-healty-check
+        keptn.sh/post-deployment-evaluations: demoapp-healthy-check
       # This is the annotation for OpenFeature Operator
       annotations:     
         openfeature.dev/enabled: "true"

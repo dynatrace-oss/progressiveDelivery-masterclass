@@ -1,0 +1,52 @@
+site_name: "Progressive Delivery Masterclass"
+theme:
+  name: material
+  palette: 
+      # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.copy
+
+docs_dir: docs
+# Powers the GitHub links in top bar
+repo_url: https://github.com/dynatrace-oss/progressivedelivery-masterclass
+repo_name: dynatrace-oss/progressivedelivery-masterclass
+
+# Something?
+edit_uri: edit/main/web-docs/
+
+nav:
+  - 'Home': 'index.md'
+  - 'Tutorial Steps':
+      - 'Preparation': 'index.md'
+      - '1: Create Codespace': '1-create-codespace.md'
+      - '2: Create Kubernetes Cluster': '2-create-cluster.md'
+      - '3: Access ArgoCD': '3-access-argo.md'
+      - '4: The System Explained': '4-explainer.md'
+      - '5: View Telemetry': '5-view-telemetry.md'
+      - '6: Roll out Slow Version': '6-deploy-slow-version.md'
+
+# pip install mkdocs-macros-plugin
+# Allows use of variables (see `extras` below)
+plugins:
+  - macros
+
+extra:
+  # when code is updated
+  # this var can be removed and
+  # we can use {{ site.repo_name }} (see above)
+  # instead
+  temp_site_url: "aloisreitbauer/progressivedelivery-masterclass"
