@@ -10,7 +10,7 @@ COPY docker.sh /tmp/scripts/
 # update the container
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install zsh -y && \
+    apt-get install zsh ca-certificates gnupg -y && \
     apt-get autoremove -y && \
     apt-get clean -y
 
@@ -34,6 +34,13 @@ RUN FLAGD_RELEASE=$(curl --silent "https://api.github.com/repos/open-feature/fla
     && chmod +x /usr/local/bin/flagd_linux_x86_64 \
     && mv /usr/local/bin/flagd_linux_x86_64 /usr/local/bin/flagd \
     && flagd version 
+
+# Install nodejs
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
+    && NODE_MAJOR=20 && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list \
+    && apt-get update && apt-get install nodejs -y
+
 
 RUN /tmp/scripts/docker.sh
 
