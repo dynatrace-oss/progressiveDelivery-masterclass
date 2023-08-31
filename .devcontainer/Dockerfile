@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-bullseye as kind
+FROM mcr.microsoft.com/vscode/devcontainers/base:bookworm as kind
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
@@ -25,6 +25,15 @@ RUN curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 
 RUN KIND_RELEASE=$(curl --silent "https://api.github.com/repos/kubernetes-sigs/kind/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') \
     && curl -sSL -o /usr/local/bin/kind https://kind.sigs.k8s.io/dl/$KIND_RELEASE/kind-linux-amd64 \
     && chmod +x /usr/local/bin/kind
+
+# Install flagd
+RUN FLAGD_RELEASE=$(curl --silent "https://api.github.com/repos/open-feature/flagd/releases/latest" | grep '"tag_name":' | sed -E 's/.*"core\/v([^"]+)".*/\1/') \
+    && curl -sSL -o /usr/local/bin/flagd.tar.gz https://github.com/open-feature/flagd/releases/download/flagd%2Fv${FLAGD_RELEASE}/flagd_${FLAGD_RELEASE}_Linux_x86_64.tar.gz \
+    && tar -xzf /usr/local/bin/flagd.tar.gz -C /usr/local/bin/ --wildcards --no-anchored 'flagd_linux*' \
+    && rm /usr/local/bin/flagd.tar.gz \
+    && chmod +x /usr/local/bin/flagd_linux_x86_64 \
+    && mv /usr/local/bin/flagd_linux_x86_64 /usr/local/bin/flagd \
+    && flagd version 
 
 RUN /tmp/scripts/docker.sh
 
