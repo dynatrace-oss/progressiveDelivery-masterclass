@@ -14,6 +14,12 @@ The class will be executed from a GitHub Codespace, so there is nothing to insta
 
 You will need a GitHub.com account to follow this class.
 
+## Preparation
+
+Start the masterclass by forking [this repository](https://github.com/dynatrace-oss/progressivedelivery-masterclass) into your GitHub account.
+
+All commands should be executed in **your fork**.
+
 ## Create a Codespace
 
 Start the tutorial by creating a [codespace in your fork](1-create-codespace.md).
