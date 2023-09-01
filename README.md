@@ -1,5 +1,7 @@
 # Progressive Delivery Masterclass
 
+> New docs website: https://dynatrace-oss.github.io/progressiveDelivery-masterclass/
+
 This masterclass shows how to set up a full progressive delivery platform using open source tooling
 
 The masterclass uses a very simple node.js demo application
