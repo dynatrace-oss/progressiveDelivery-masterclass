@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This masterclass guides illustrates how to use various cloud-native tools to gain better observability and management of your cloud-native software deployment.
+This masterclass illustrates how to use various cloud-native tools to gain better observability and management of your cloud-native software deployment.
 
 - [Kubernetes](https://kubernetes.io)
 - [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
