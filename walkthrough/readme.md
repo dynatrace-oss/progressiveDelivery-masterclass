@@ -34,7 +34,7 @@ of your cloud-native software deployment.
 ## Create Cluster and Install Applications
 
 1. Click the magifying glass icon in the left hand menu and perform a find and replace
-  - Find: `aloisreitbauer/progressivedelivery-masterclass`
+  - Find: `dynatrace-oss/progressivedelivery-masterclass`
   - Replace: `YourGitHubUsername/progressivedelivery-masterclass`
 
 ![find and replace](assets/find-replace.png)

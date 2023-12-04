@@ -110,9 +110,9 @@ Create the following directory ``manifests/apps`` and execute
 
 ```bash
 
-curl -sL -o featureflags.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/manifests/app/featureflags.yaml
+curl -sL -o featureflags.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/manifests/app/featureflags.yaml
 
-curl -sL -o flagsource.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/manifests/app/flagsource.yaml
+curl -sL -o flagsource.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/manifests/app/flagsource.yaml
 
 ```
 

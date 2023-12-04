@@ -49,4 +49,4 @@ extra:
   # this var can be removed and
   # we can use {{ site.repo_name }} (see above)
   # instead
-  temp_site_url: "aloisreitbauer/progressivedelivery-masterclass"
+  temp_site_url: "dynatrace-oss/progressivedelivery-masterclass"
