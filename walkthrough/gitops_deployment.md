@@ -25,19 +25,19 @@ Open a bash shell and execute the following commands
 to apply the Kubernetes resources required for this exercise:
 
 ```bash
-curl --create-dirs -sL -o gitops/app-of-apps.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/app-of-apps.yaml
-curl --create-dirs -sL -o gitops/applications/argo-config.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/argo-config.yaml
-curl --create-dirs -sL -o gitops/applications/cert-manager.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/cert-manager.yaml
-curl --create-dirs -sL -o gitops/applications/ingress-nginx.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/ingress-nginx.yaml
-curl --create-dirs -sL -o gitops/applications/demo-application.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/applications/demo-application.yaml
-curl --create-dirs -sL -o gitops/manifests/argo-config/argocd-cm.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/argo-config/argocd-cm.yaml
-curl --create-dirs -sL -o gitops/manifests/argo-config/ingress.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/argo-config/ingress.yaml
-curl --create-dirs -sL -o gitops/manifests/cert-manager/deploy.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/cert-manager/deploy.yaml
-curl --create-dirs -sL -o gitops/manifests/ingress-nginx/deploy.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/ingress-nginx/deploy.yaml
-curl --create-dirs -sL -o gitops/manifests/demo-application/deployment.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/deployment.yaml
-curl --create-dirs -sL -o gitops/manifests/demo-application/ingress.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/ingress.yaml
-curl --create-dirs -sL -o gitops/manifests/demo-application/service.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/service.yaml
-curl --create-dirs -sL -o gitops/manifests/demo-application/namespace.yaml https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/namespace.yaml
+curl --create-dirs -sL -o gitops/app-of-apps.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/app-of-apps.yaml
+curl --create-dirs -sL -o gitops/applications/argo-config.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/applications/argo-config.yaml
+curl --create-dirs -sL -o gitops/applications/cert-manager.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/applications/cert-manager.yaml
+curl --create-dirs -sL -o gitops/applications/ingress-nginx.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/applications/ingress-nginx.yaml
+curl --create-dirs -sL -o gitops/applications/demo-application.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/applications/demo-application.yaml
+curl --create-dirs -sL -o gitops/manifests/argo-config/argocd-cm.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/argo-config/argocd-cm.yaml
+curl --create-dirs -sL -o gitops/manifests/argo-config/ingress.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/argo-config/ingress.yaml
+curl --create-dirs -sL -o gitops/manifests/cert-manager/deploy.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/cert-manager/deploy.yaml
+curl --create-dirs -sL -o gitops/manifests/ingress-nginx/deploy.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/ingress-nginx/deploy.yaml
+curl --create-dirs -sL -o gitops/manifests/demo-application/deployment.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/demo-application/deployment.yaml
+curl --create-dirs -sL -o gitops/manifests/demo-application/ingress.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/demo-application/ingress.yaml
+curl --create-dirs -sL -o gitops/manifests/demo-application/service.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/demo-application/service.yaml
+curl --create-dirs -sL -o gitops/manifests/demo-application/namespace.yaml https://raw.githubusercontent.com/dynatrace-oss/progressivedelivery-masterclass/main/gitops/manifests/demo-application/namespace.yaml
 ```
 
 
@@ -81,11 +81,11 @@ set YOURREPOSITORY=YourGitHubRepoHere
 
 Now modify the files:
 ```
-docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/app-of-apps.yaml
-docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/argo-config.yaml
-docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/demo-application.yaml
-docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/ingress-nginx.yaml
-docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/cert-manager.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/app-of-apps.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/argo-config.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/demo-application.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/ingress-nginx.yaml
+docker run --rm -v %cd%:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/%YOURHANDLE%/%YOURREPOSITORY%_g" /files/gitops/applications/cert-manager.yaml
 ```
 
 #### Linux
@@ -99,11 +99,11 @@ export YOURREPOSITORY=YourGitHubRepoHere
 
 Now modify the files:
 ```
-docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/app-of-apps.yaml
-docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/argo-config.yaml
-docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/demo-application.yaml
-docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/ingress-nginx.yaml
-docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/AloisReitbauer/progressiveDelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/cert-manager.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/app-of-apps.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/argo-config.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/demo-application.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/ingress-nginx.yaml
+docker run --rm -v $pwd:/files busybox:stable sed -i "s_github.com/dynatrace-oss/progressivedelivery-masterclass_github.com/$YOURHANDLE/$YOURREPOSITORY_g" /files/gitops/applications/cert-manager.yaml
 ```
 
 ## Commit files to GitHub
