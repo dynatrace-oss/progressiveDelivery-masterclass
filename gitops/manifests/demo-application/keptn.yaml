@@ -31,7 +31,7 @@ metadata:
 spec:
   provider:
     name: my-provider
-  query: 'avg(rate(http_server_duration_bucket{exported_job="demoapp"}[2m]))'
+  query: 'avg(rate(http_server_duration_milliseconds_bucket{exported_job="demoapp"}[2m]))'
   fetchIntervalSeconds: 5
 ---
 apiVersion: lifecycle.keptn.sh/v1alpha3
