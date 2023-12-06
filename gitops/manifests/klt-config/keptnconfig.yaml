@@ -3,4 +3,4 @@ kind: KeptnConfig
 metadata:
   name: keptnconfig-sample
 spec:
-  OTelCollectorUrl: 'otel-collector:4317'
+  OTelCollectorUrl: 'jaeger-collector:4317'
