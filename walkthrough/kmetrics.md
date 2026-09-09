@@ -25,7 +25,6 @@ To implement a custom Keptn metric:
    resource that defines the observability platform query to use
    and the interval at which to sample this data.
 
-
 ## Define KeptnMetricProvider
 
 In this exercise, we are fetching metrics from a single instance
